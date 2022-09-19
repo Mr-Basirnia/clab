@@ -1,0 +1,17 @@
+{
+    "name": "mr-basirnia/clab-develop",
+    "type": "wordpress-theme",
+    "autoload": {
+        "psr-4": {
+            "MrBasirnia\\App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mr-Basirnia",
+            "email": "mr.basirnia@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
