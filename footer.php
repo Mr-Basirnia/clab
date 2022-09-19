@@ -8,4 +8,12 @@
 |
 */
 
-get_template_part( 'templates/layouts/footer' );
+use MrBasirnia\App\Helpers\Clab_Helper as Render;
+
+
+/**
+ * Renders layout's footer.
+ *
+ * @see templates/layouts/footer.php
+ */
+Render::template( 'layouts/footer' );

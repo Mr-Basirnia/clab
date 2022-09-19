@@ -32,3 +32,14 @@ Clab_Helper::define( 'CLAB__URL', get_template_directory_uri() . DIRECTORY_SEPAR
  *  Init Theme Setup
  * ---------------------------------*/
 Clab_Setup::getInstance();
+
+
+/*------------------------------------
+ *  Add Class To pagination
+ * ---------------------------------*/
+add_filter( 'next_posts_link_attributes', 'posts_link_attributes' );
+add_filter( 'previous_posts_link_attributes', 'posts_link_attributes' );
+
+function posts_link_attributes(): string {
+	return 'class="btn btn-dark"';
+}
