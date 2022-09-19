@@ -12,6 +12,7 @@ namespace MrBasirnia\App\Classes;
 |
 */
 
+use MrBasirnia\App\Classes\Widgets\Category_Widget;
 use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
 
@@ -80,8 +81,13 @@ class Clab_Setup extends Singleton {
 	public function clab_register_widgets() {
 
 		/*------------------------------
-		 * Add Clab Theme Widgets
+		 * Add Clab Search Widgets
 		 *----------------------------*/
 		register_widget( Search_Widget::class );
+
+		/*------------------------------
+		 * Add Clab Category Widgets
+		 *----------------------------*/
+		register_widget( Category_Widget::class );
 	}
 }
