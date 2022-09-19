@@ -30,15 +30,16 @@ if ( have_posts() ) : ?>
 
 	<?php endwhile; ?>
 
-
-    <!--pagination-->
-    <div class="pagination justify-content-center mb-4">
-		<?php previous_posts_link( '<i class="fa fa-angle-left"></i>' ); ?>
-        <div class="h6 mt-2 mx-4">
-			<?php Clab_Helper::get_current_page( true ) ?> از <?= Clab_Helper::get_count_page() ?>
+	<?php if ( get_previous_posts_link() || get_next_posts_link() ): ?>
+        <!--pagination-->
+        <div class="pagination justify-content-center mb-4">
+			<?php previous_posts_link( '<i class="fa fa-angle-left"></i>' ); ?>
+            <div class="h6 mt-2 mx-4">
+				<?php Clab_Helper::get_current_page( true ) ?> از <?= Clab_Helper::get_count_page() ?>
+            </div>
+			<?php next_posts_link( '<i class="fa fa-angle-right"></i>' ); ?>
         </div>
-		<?php next_posts_link( '<i class="fa fa-angle-right"></i>' ); ?>
-    </div>
+	<?php endif; ?>
 
 
 <?php endif; ?>

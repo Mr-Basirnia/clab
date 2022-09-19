@@ -36,7 +36,7 @@ class Search_Widget extends WP_Widget {
             <div class="form-group">
                 <div class="icon-field">
                     <i class="vl-search"></i>
-                    <input type="text" class="form-control" placeholder="<?= $instance['placeholder'] ?>">
+                    <input type="text" name="s" class="form-control" placeholder="<?= $instance['placeholder'] ?>">
                 </div>
             </div>
         </form>
