@@ -12,12 +12,17 @@ namespace MrBasirnia\App\Classes;
 |
 */
 
+use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
 
 class Clab_Setup extends Singleton {
 
 	public function __construct() {
 		add_action( 'after_setup_theme', array ( $this, 'init' ) );
+
+		/* It's a WordPress hook that will be called when the theme is loaded. */
+		add_action( 'widgets_init', array ( $this, 'clab_register_sidebars' ) );
+		add_action( 'widgets_init', array ( $this, 'clab_register_widgets' ) );
 	}
 
 	public function init() {
@@ -45,5 +50,38 @@ class Clab_Setup extends Singleton {
 
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
+	}
+
+	/**
+	 * It registers a sidebar for the theme.
+	 * You can add new sidebar in here
+	 *
+	 * @return void
+	 */
+	public function clab_register_sidebars(): void {
+
+		/*------------------------------
+		 * Add Blog Sidebar
+		 *----------------------------*/
+		register_sidebar( array (
+			'name'           => 'بلاگ سایدبار',
+			'id'             => 'clab_blog_sidebar',
+			'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+			'before_sidebar' => '<div class="col-lg-4">',
+			'after_sidebar'  => '</div>',
+			'before_widget'  => '<div class="blog-widget mb-4">',
+			'after_widget'   => '</div>',
+			'before_title'   => '',
+			'after_title'    => '',
+		) );
+	}
+
+
+	public function clab_register_widgets() {
+
+		/*------------------------------
+		 * Add Clab Theme Widgets
+		 *----------------------------*/
+		register_widget( Search_Widget::class );
 	}
 }

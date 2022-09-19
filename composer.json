@@ -6,6 +6,9 @@
             "MrBasirnia\\App\\": "app/"
         }
     },
+    "config": {
+        "optimize-autoloader": true
+    },
     "authors": [
         {
             "name": "Mr-Basirnia",
