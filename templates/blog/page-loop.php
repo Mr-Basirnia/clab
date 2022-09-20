@@ -21,7 +21,7 @@ if ( have_posts() ) : ?>
             <div class="meta font-lora my-4">
 				<?php the_category( ' - ' ); ?>
                 <span class="meta-separator"></span>
-                <a href="#"><?php the_date(); ?></a>
+                <a href="#"><?= verta( get_post_timestamp( get_the_ID() ) )->format( '%d %B، %Y' ) ?></a>
             </div>
 
 			<?php the_excerpt(); ?>
