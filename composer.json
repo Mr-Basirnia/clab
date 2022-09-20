@@ -16,5 +16,8 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^2.62",
+        "hekmatinasser/verta": "^8.1"
+    }
 }
