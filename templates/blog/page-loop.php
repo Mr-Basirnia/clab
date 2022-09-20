@@ -9,7 +9,7 @@ if ( have_posts() ) : ?>
 
             <a href="<?php the_permalink(); ?>">
 				<?php if ( has_post_thumbnail( get_the_ID() ) ): ?>
-					<?php the_post_thumbnail( attr: [ 'class' => 'rounded mb-lg-5 mb-4' ] ); ?>
+					<?php the_post_thumbnail( 'clab_blog_post_thumbnail', [ 'class' => 'rounded mb-lg-5 mb-4' ] ); ?>
 				<?php endif; ?>
             </a>
 

@@ -39,7 +39,20 @@ class Clab_Setup extends Singleton {
 	 */
 	private function add_clab_theme_image_size(): void {
 
-		//TODO:: Set Theme Images Size Here
+		/*------------------------------
+		* Blog Posts Thumbnail
+		*----------------------------*/
+		add_image_size( 'clab_blog_post_thumbnail', 730, 432, true );
+
+		/*------------------------------
+		* Blog Single Page Post Thumbnail
+		*----------------------------*/
+		add_image_size( 'clab_blog_post_single_thumbnail', 1110, 387, true );
+
+		/*------------------------------
+		* Recent Posts Widget Thumbnail
+		*----------------------------*/
+		add_image_size( 'clab_widget_recent_posts_thumbnail', 84, 69, true );
 	}
 
 
