@@ -13,6 +13,7 @@ namespace MrBasirnia\App\Classes;
 */
 
 use MrBasirnia\App\Classes\Widgets\Category_Widget;
+use MrBasirnia\App\Classes\Widgets\Common_Widget;
 use MrBasirnia\App\Classes\Widgets\Recent_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
@@ -108,5 +109,10 @@ class Clab_Setup extends Singleton {
 		 * Add Clab Recent Posts Widgets
 		 *----------------------------*/
 		register_widget( Recent_Posts_Widget::class );
+
+		/*------------------------------
+		 * Add Clab Newsletter Widgets
+		 *----------------------------*/
+		register_widget( Common_Widget::class );
 	}
 }
