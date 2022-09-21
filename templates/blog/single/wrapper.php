@@ -22,5 +22,13 @@ if ( have_posts() ):
 		 */
 		Render::template( 'blog/single/content' );
 
+
+		/**
+		 * Renders single blog page comments.
+		 *
+		 * @see clab-develop/comments.php
+		 */
+		comments_template();
+
 	endwhile;
 endif;

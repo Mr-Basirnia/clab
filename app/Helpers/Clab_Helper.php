@@ -2,6 +2,8 @@
 
 namespace MrBasirnia\App\Helpers;
 
+use Hekmatinasser\Verta\Verta;
+
 class Clab_Helper {
 
 
@@ -83,5 +85,85 @@ class Clab_Helper {
 		}
 
 		return ceil( $published_post_count / $posts_per_page );
+	}
+
+
+	/**
+	 * It's a callback function for the WordPress function `wp_list_comments()`
+	 * that outputs the HTML for a single comment
+	 *
+	 * @param $comment
+	 * @param $args
+	 * @param $depth
+	 */
+	public static function clab_blog_comments_list_style( $comment, $args, $depth ): void {
+		?>
+
+        <li class="comment ">
+            <article class="comment-body">
+                <footer class="comment-meta">
+                    <div class="comment-author ">
+						<?php
+						if ( $args['avatar_size'] != 0 ) {
+							echo get_avatar( $comment, $args['avatar_size'] );
+						}
+						?>
+                        <b class="fn">
+							<?php if ( $comment->comment_approved !== '0' ): ?>
+                                <a href="#" rel="external nofollow" class="url"><?= get_comment_author_link() ?></a>
+							<?php else: ?>
+                                <p rel="external nofollow" class="url">
+                                    نام بعد از تایید دیدگاه نمایش داده می شود .
+                                </p>
+							<?php endif; ?>
+                        </b>
+                        <span class="says">گفته:</span>
+                    </div><!-- .comment-author -->
+
+                    <div class="comment-metadata">
+                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+							<?php
+							$data_time = get_comment_date( 'Y-m-d' ) . ' ' . get_comment_time( 'H:i' );
+							echo \verta( $data_time )->format( '%d %B %Y در g:i A' );
+							?>
+                        </a>
+                    </div><!-- .comment-metadata -->
+
+                </footer><!-- .comment-meta -->
+
+				<?php if ( $comment->comment_approved == '0' ) : ?>
+                    <em class="comment-awaiting-moderation"><?= 'کامنت در انتظار تایید است.' ?></em><br/>
+				<?php endif; ?>
+
+				<?php if ( $comment->comment_approved !== '0' ): ?>
+
+                    <div class="comment-content">
+						<?php comment_text(); ?>
+                    </div><!-- .comment-content -->
+
+				<?php endif; ?>
+
+				<?php if ( $comment->comment_approved !== '0' ): ?>
+
+                    <div class="reply">
+						<?php
+						comment_reply_link(
+							array_merge(
+								$args,
+								array (
+									'add_below' => 'comment',
+									'depth'     => $depth,
+									'max_depth' => $args['max_depth']
+								)
+							)
+						); ?>
+                    </div>
+
+				<?php endif; ?>
+
+            </article><!-- .comment-body -->
+        </li>
+
+		<?php
 	}
 }
