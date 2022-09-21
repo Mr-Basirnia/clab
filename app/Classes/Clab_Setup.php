@@ -27,6 +27,9 @@ class Clab_Setup extends Singleton {
 		/* It's a WordPress hook that will be called when the theme is loaded. */
 		add_action( 'widgets_init', array ( $this, 'clab_register_sidebars' ) );
 		add_action( 'widgets_init', array ( $this, 'clab_register_widgets' ) );
+
+		/* It adds a filter to the body tag classes. */
+		add_filter( 'body_class', array ( $this, 'clab_body_tag_classes' ) );
 	}
 
 	public function init() {
@@ -120,5 +123,30 @@ class Clab_Setup extends Singleton {
 		 * Add Clab Instagram Posts Widgets
 		 *-----------------------------------*/
 		register_widget( Instagram_Posts_Widget::class );
+	}
+
+
+	/**
+	 * Add or delete some tag body classes.
+	 *
+	 * @param $classes (array) An array of body classes.
+	 *
+	 * @return array An array of classes.
+	 */
+	public function clab_body_tag_classes( array $classes ): array {
+
+		if ( is_single() ) {
+			/*-------------------------------------------------
+			* If the current page is a single post,
+			* remove the class `bg-gray` from the body tag.
+			*------------------------------------------------*/
+			foreach ( $classes as $key => $value ) {
+				if ( $value == 'bg-gray' ) {
+					unset( $classes[ $key ] ); //class "bg-gray" removes it
+				}
+			}
+		}
+
+		return $classes;
 	}
 }
