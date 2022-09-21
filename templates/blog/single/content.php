@@ -14,12 +14,15 @@
 						<?php
 						// Checking if there is any error in the post tags and if there is no error it will loop through
 						// the tags and display them.
-						if ( ! is_wp_error( $post_tags ) ): ?>
+						if ( ! is_wp_error( $post_tags ) && $post_tags ): ?>
 							<?php foreach ( $post_tags as $key => $tag ): ?>
                                 <a href="<?= $tag->slug; ?>" class="badge badge-pill badge-dark">
 									<?= $tag->name; ?>
                                 </a>
 							<?php endforeach; ?>
+
+						<?php else: ?>
+                            <p class="badge badge-pill badge-dark">بدون برچسب</p>
 						<?php endif; ?>
                     </h6>
 
