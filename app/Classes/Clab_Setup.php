@@ -14,6 +14,7 @@ namespace MrBasirnia\App\Classes;
 
 use MrBasirnia\App\Classes\Widgets\Category_Widget;
 use MrBasirnia\App\Classes\Widgets\Common_Widget;
+use MrBasirnia\App\Classes\Widgets\Instagram_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Recent_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
@@ -114,5 +115,10 @@ class Clab_Setup extends Singleton {
 		 * Add Clab Newsletter Widgets
 		 *----------------------------*/
 		register_widget( Common_Widget::class );
+
+		/*-------------------------------------
+		 * Add Clab Instagram Posts Widgets
+		 *-----------------------------------*/
+		register_widget( Instagram_Posts_Widget::class );
 	}
 }
