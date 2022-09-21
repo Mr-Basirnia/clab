@@ -1,13 +1,22 @@
 {
     "name": "mr-basirnia/clab-develop",
     "type": "wordpress-theme",
+    "version": "1.0.0",
+    "license": "GPL-3.0+",
+    "keywords": [
+        "wordpress",
+        "theme"
+    ],
     "autoload": {
         "psr-4": {
             "MrBasirnia\\App\\": "app/"
         }
     },
     "config": {
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "authors": [
         {
@@ -17,7 +26,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": ">=8.0",
         "nesbot/carbon": "^2.62",
         "hekmatinasser/verta": "^8.1"
+    },
+    "homepage": "https://github.com/Mr-Basirnia/clab",
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^2.3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
     }
 }
