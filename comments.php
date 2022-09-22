@@ -34,37 +34,58 @@
                     <h3 class="comment-reply-title mb-lg-5 mb-4">
                         پیام بگذارید
                     </h3>
-                    <form role="form" class="comment-form">
-                        <div class="row">
-                            <div class=" col-md-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="نام*" required="">
-                                </div>
-                            </div>
-                            <div class=" col-md-4">
-                                <div class="form-group ">
-                                    <input type="email" class="form-control" placeholder="ایمیل*" required="">
-                                </div>
-                            </div>
-                            <div class=" col-md-4">
-                                <div class="form-group ">
-                                    <input type="text" class="form-control" placeholder="وب سایت" required="">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="controls">
-                                <textarea id="message" rows="5" placeholder="نظر*" class="form-control"
-                                          required=""></textarea>
+					<?php
+					/*------------------------------------
+					*  Single Page Comment Form
+					* ---------------------------------*/
+					?>
+					<?php comment_form( array (
+						'format'               => 'html5',
+						'title_reply'          => '',
+						'fields'               => array (
+							'author' => '
+                            <div class="row">
+                                <div class=" col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" name="author" class="form-control" placeholder="نام*" required="">
+                                    </div>
+                                </div>
+						',
+							'email'  => '
+                                <div class=" col-md-4">
+                                    <div class="form-group ">
+                                        <input type="email" name="email" class="form-control" placeholder="ایمیل*" required="">
+                                    </div>
+                                </div>
+						',
+							'url'    => '
+                                <div class=" col-md-4">
+                                    <div class="form-group ">
+                                        <input type="text" name="url" class="form-control" placeholder="وب سایت" required="">
+                                    </div>
+                                </div>
+                             </div>
+                        '
+						),
+						'comment_field'        => '
+                            <div class="form-group">
+                                <div class="controls">
+                                    <textarea id="message" name="comment" rows="5" placeholder="نظر*" class="form-control"
+                                              required=""></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-muted">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای مورد نیاز علامت گذاری شده اند
-                            *</p>
-                        <div class="text-center mt-md-5">
-                            <button type="submit" class="btn btn-theme">ارسال</button>
-                        </div>
-                    </form>
+                        ',
+						'submit_button'        => '
+                            <div class="text-center mt-md-5">
+                                <button type="submit" class="btn btn-theme">ارسال</button>
+                            </div>
+                        ',
+						'comment_notes_before' => '<p class="text-muted">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای مورد نیاز علامت گذاری شده اند *</p>',
+						'title_reply_before'   => '<h5 id="reply-title" class="comment-reply-title">',
+						'title_reply_after'    => '</h5>'
+					), get_the_ID() ); ?>
+
                 </div>
                 <!--comment form end-->
             </div>
