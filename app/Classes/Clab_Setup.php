@@ -55,6 +55,11 @@ class Clab_Setup extends Singleton {
 		add_image_size( 'clab_blog_post_single_thumbnail', 1110, 387, true );
 
 		/*------------------------------
+		* Related Posts Thumbnail
+		*----------------------------*/
+		add_image_size( 'clab_related_posts_thumbnail', 350, 233, true );
+
+		/*------------------------------
 		* Recent Posts Widget Thumbnail
 		*----------------------------*/
 		add_image_size( 'clab_widget_recent_posts_thumbnail', 84, 69, true );

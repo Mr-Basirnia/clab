@@ -3,6 +3,7 @@
 namespace MrBasirnia\App\Helpers;
 
 use Hekmatinasser\Verta\Verta;
+use WP_Query;
 
 class Clab_Helper {
 
@@ -165,5 +166,26 @@ class Clab_Helper {
         </li>
 
 		<?php
+	}
+
+
+	/**
+	 * It returns a WP_Query object if there are posts in the categories passed to the function.
+	 *
+	 * @param array $categories An array of category IDs.
+	 *
+	 * @return WP_Query A WP_Query object.
+	 */
+	public static function related_posts( array $categories ): WP_Query {
+
+		/*------------------------------------
+		* Get similar posts by category
+		* ---------------------------------*/
+		return new WP_Query( array (
+			'post_type'       => 'post',
+			'post_status'     => 'publish',
+			'posts_per_page ' => 3,
+			'category__in'    => $categories
+		) );
 	}
 }

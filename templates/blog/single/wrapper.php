@@ -30,5 +30,13 @@ if ( have_posts() ):
 		 */
 		comments_template();
 
+
+		/**
+		 * Renders related blogs.
+		 *
+		 * @see templates/blog/single/related_blogs.php
+		 */
+		Render::template( 'blog/single/related_blogs' );
+
 	endwhile;
 endif;
