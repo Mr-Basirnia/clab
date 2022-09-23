@@ -18,6 +18,7 @@ use MrBasirnia\App\Classes\Widgets\Instagram_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Recent_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
+use MrBasirnia\App\Shortcodes\Shortcode_Gallery;
 
 class Clab_Setup extends Singleton {
 
@@ -45,6 +46,11 @@ class Clab_Setup extends Singleton {
 		* Save Gallery Meta Box
 		*-------------------------------------*/
 		add_action( 'save_post', array ( $this, 'gallery_meta_save' ) );
+
+		/*--------------------------------------
+		* Add Clab Shortcodes
+		*-------------------------------------*/
+		$this->add_clab_theme_shortcodes();
 	}
 
 	public function init() {
@@ -78,6 +84,11 @@ class Clab_Setup extends Singleton {
 		* Recent Posts Widget Thumbnail
 		*----------------------------*/
 		add_image_size( 'clab_widget_recent_posts_thumbnail', 84, 69, true );
+
+		/*------------------------------
+        * Gallery ShortCode
+        *----------------------------*/
+		add_image_size( 'clab_gallery_shortcode', 730, 486, true );
 	}
 
 
@@ -286,5 +297,20 @@ class Clab_Setup extends Singleton {
 		} else {
 			delete_post_meta( $post_id, 'vdw_gallery_id' );
 		}
+	}
+
+
+	/**
+	 * Add Clab Theme Shortcodes
+	 *
+	 * @return void
+	 */
+	private function add_clab_theme_shortcodes(): void {
+
+		/*------------------------------------------------------
+        * It's a shortcode that will be used in the post editor.
+        *-----------------------------------------------------*/
+		$gallery_shortcode = new Shortcode_Gallery();
+
 	}
 }
