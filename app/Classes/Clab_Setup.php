@@ -19,6 +19,7 @@ use MrBasirnia\App\Classes\Widgets\Recent_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
 use MrBasirnia\App\Shortcodes\Shortcode_Gallery;
+use MrBasirnia\App\Shortcodes\Shortcode_Quote;
 
 class Clab_Setup extends Singleton {
 
@@ -311,6 +312,11 @@ class Clab_Setup extends Singleton {
         * It's a shortcode that will be used in the post editor.
         *-----------------------------------------------------*/
 		$gallery_shortcode = new Shortcode_Gallery();
+
+		/*------------------------------------------------------
+		* It's a shortcode that will be used in the post editor.
+		*-----------------------------------------------------*/
+		$quote_shortcode = new Shortcode_Quote();
 
 	}
 }
