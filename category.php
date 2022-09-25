@@ -10,14 +10,6 @@ get_header();
 
 
 /**
- * Renders Nav and Header Tag
- *
- * @see templates/partials/header.php
- */
-Render::template( 'partials/header' );
-
-
-/**
  * Renders Page Title
  *
  * @see templates/category/cat-title.php
