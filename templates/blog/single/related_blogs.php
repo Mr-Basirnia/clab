@@ -41,7 +41,8 @@
                             <div class="card-body py-4">
 
 								<?php foreach ( $related_post_categories as $category ): ?>
-                                    <a href="<?= $category->slug ?>" class="mb-2 d-inline-block">
+                                    <a href="<?= get_category_link( $category->term_id ) ?>"
+                                       class="mb-2 d-inline-block">
 										<?= $category->name ?>
                                     </a>
                                     /
