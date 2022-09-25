@@ -16,7 +16,7 @@
 						// the tags and display them.
 						if ( ! is_wp_error( $post_tags ) && $post_tags ): ?>
 							<?php foreach ( $post_tags as $key => $tag ): ?>
-                                <a href="<?= $tag->slug; ?>" class="badge badge-pill badge-dark">
+                                <a href="<?= get_tag_link( $tag->term_id ); ?>" class="badge badge-pill badge-dark">
 									<?= $tag->name; ?>
                                 </a>
 							<?php endforeach; ?>
