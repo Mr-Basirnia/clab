@@ -167,7 +167,7 @@ class Clab_Setup extends Singleton {
 	 */
 	public function clab_body_tag_classes( array $classes ): array {
 
-		if ( is_single() ) {
+		if ( is_single() || is_404() ) {
 			/*-------------------------------------------------
 			* If the current page is a single post,
 			* remove the class `bg-gray` from the body tag.
