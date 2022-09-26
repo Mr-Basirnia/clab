@@ -1,4 +1,4 @@
-<header class="app-header transparent-header transparent-header-dark-nav">
+<header class="<?= apply_filters( 'clab_header_tag_class', 'app-header transparent-header transparent-header-dark-nav' ); ?>">
     <div class="container">
         <div class="row">
             <div class="col-12">

@@ -18,6 +18,7 @@ use MrBasirnia\App\Classes\Widgets\Instagram_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Recent_Posts_Widget;
 use MrBasirnia\App\Classes\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
+use MrBasirnia\App\Shortcodes\page_shortcodes\about\Shortcode_About;
 use MrBasirnia\App\Shortcodes\Shortcode_Gallery;
 use MrBasirnia\App\Shortcodes\Shortcode_Quote;
 
@@ -52,6 +53,11 @@ class Clab_Setup extends Singleton {
 		* Add Clab Shortcodes
 		*-------------------------------------*/
 		$this->add_clab_theme_shortcodes();
+
+		/*--------------------------------------
+		* Filter header tag classes
+		*-------------------------------------*/
+		add_filter( 'clab_header_tag_class', array ( $this, 'clab_header_tag_class_callback' ) );
 	}
 
 	public function init() {
@@ -167,7 +173,7 @@ class Clab_Setup extends Singleton {
 	 */
 	public function clab_body_tag_classes( array $classes ): array {
 
-		if ( is_single() || is_404() ) {
+		if ( is_single() || is_404() || is_page() ) {
 			/*-------------------------------------------------
 			* If the current page is a single post,
 			* remove the class `bg-gray` from the body tag.
@@ -318,5 +324,35 @@ class Clab_Setup extends Singleton {
 		*-----------------------------------------------------*/
 		$quote_shortcode = new Shortcode_Quote();
 
+		( new Shortcode_About() );
+
+	}
+
+
+	/**
+	 * Filtering the header tag class on some pages
+	 *
+	 * @param string $classes header tag classes
+	 *
+	 * @return string
+	 */
+	public function clab_header_tag_class_callback( string $classes ): string {
+
+		$classes_available = explode( ' ', $classes );
+
+		/**
+		 * If the current page is a page,
+		 * then return the intersection of the classes available and the classes I want to use
+		 */
+		if ( is_page() ) {
+			$access_class = array ( 'app-header', 'transparent-header-dark-nav' );
+
+			return implode(
+				' ',
+				array_intersect( $classes_available, $access_class )
+			);
+		}
+
+		return $classes;
 	}
 }
