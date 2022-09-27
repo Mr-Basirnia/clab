@@ -1,17 +1,17 @@
 <?php
 
-namespace MrBasirnia\App\Classes\Widgets;
+namespace MrBasirnia\App\Widgets;
 
 use WP_Widget;
 
-class Common_Widget extends WP_Widget {
+class Instagram_Posts_Widget extends WP_Widget {
 
 	/**
 	 * Register widget with WordPress.
 	 */
 	public function __construct(
-		$id_base = 'clab_common_widget',
-		$name = 'عضویت در خبرنامه کلاب',
+		$id_base = 'clab_instagram_posts_widget',
+		$name = 'پست ها از اینستاگرام',
 		$widget_options = array (),
 		$control_options = array ()
 	) {
@@ -33,16 +33,20 @@ class Common_Widget extends WP_Widget {
 		?>
 
         <div class="card card-body border-0">
-            <h6 class="mb-2"><?= $instance['title'] ?></h6>
-            <p class="text-muted font-size-14"><?= $instance['description'] ?></p>
-            <form method="post" action="">
-                <div class="form-group mb-0 mt-3">
-                    <div class="icon-field-right">
-                        <i class="fa fa-paper-plane text-primary"></i>
-                        <input type="email" name="clab_newsletter" class="form-control" placeholder="آدرس ایمیل خود را وارد نمایید">
-                    </div>
-                </div>
-            </form>
+            <h6 class="mb-2">
+				<?= $instance['title'] ?>
+            </h6>
+            <p class="text-muted font-size-14">
+				<?= $instance['description'] ?>
+            </p>
+            <div class="instagram-feed">
+                <a href="#"><img src="<?= CLAB__URL ?>assets/img/cards/10a.jpg" alt=""></a>
+                <a href="#"><img src="<?= CLAB__URL ?>assets/img/cards/10b.jpg" alt=""></a>
+                <a href="#"><img src="<?= CLAB__URL ?>assets/img/cards/10c.jpg" alt=""></a>
+                <a href="#"><img src="<?= CLAB__URL ?>assets/img/cards/11a.jpg" alt=""></a>
+                <a href="#"><img src="<?= CLAB__URL ?>assets/img/cards/12a.jpg" alt=""></a>
+                <a href="#"><img src="<?= CLAB__URL ?>assets/img/cards/3a.jpg" alt=""></a>
+            </div>
         </div>
 
 		<?php
@@ -60,24 +64,26 @@ class Common_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title       = $instance['title'] ?? 'مشترک';
-		$description = $instance['description'] ?? 'ثبت نام کنید و خبرنامه ما را دریافت کنید';
+		$title       = ( $instance['title'] ) ? $instance['title'] : 'اینستاگرام';
+		$description = ( $instance['description'] ) ? $instance['description'] : 'عکس ها از اینستاگرام نشان داده می شوند';
 		?>
         <p>
-
             <label for="<?php echo $this->get_field_name( 'title' ); ?>">
                 عنوان :
             </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
                    name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
-                   value="<?php echo esc_attr( $title ); ?>"/>
+                   value="<?php echo esc_attr( $title ); ?>"
+            />
+
 
             <label for="<?php echo $this->get_field_name( 'description' ); ?>">
-                توضیحات :
+                تعداد نمایش پست های اخیر :
             </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>"
                    name="<?php echo $this->get_field_name( 'description' ); ?>" type="text"
-                   value="<?php echo esc_attr( $description ); ?>"/>
+                   value="<?php echo esc_attr( $description ); ?>"
+            />
         </p>
 		<?php
 	}

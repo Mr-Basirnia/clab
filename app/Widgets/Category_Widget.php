@@ -1,6 +1,6 @@
 <?php
 
-namespace MrBasirnia\App\Classes\Widgets;
+namespace MrBasirnia\App\Widgets;
 
 use WP_Widget;
 

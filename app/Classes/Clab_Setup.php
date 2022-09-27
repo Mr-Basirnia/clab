@@ -12,11 +12,11 @@ namespace MrBasirnia\App\Classes;
 |
 */
 
-use MrBasirnia\App\Classes\Widgets\Category_Widget;
-use MrBasirnia\App\Classes\Widgets\Common_Widget;
-use MrBasirnia\App\Classes\Widgets\Instagram_Posts_Widget;
-use MrBasirnia\App\Classes\Widgets\Recent_Posts_Widget;
-use MrBasirnia\App\Classes\Widgets\Search_Widget;
+use MrBasirnia\App\Widgets\Category_Widget;
+use MrBasirnia\App\Widgets\Common_Widget;
+use MrBasirnia\App\Widgets\Instagram_Posts_Widget;
+use MrBasirnia\App\Widgets\Recent_Posts_Widget;
+use MrBasirnia\App\Widgets\Search_Widget;
 use MrBasirnia\App\Helpers\Singleton;
 use MrBasirnia\App\Shortcodes\page_shortcodes\about\Shortcode_About;
 use MrBasirnia\App\Shortcodes\Shortcode_Gallery;
