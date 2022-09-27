@@ -1,6 +1,6 @@
 <?php
 
-namespace MrBasirnia\App\Classes;
+namespace MrBasirnia\App\Setup;
 
 /*
 |------------------------------------------------------------------

@@ -17,7 +17,7 @@ if ( file_exists( $composer = __DIR__ . '/vendor/autoload.php' ) ) {
 }
 
 
-use MrBasirnia\App\Classes\Clab_Setup;
+use MrBasirnia\App\Setup\Clab_Setup;
 use MrBasirnia\App\Helpers\Clab_Helper;
 
 
