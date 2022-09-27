@@ -109,7 +109,7 @@ class Shortcode_About {
 		ob_start();
 		include CLAB__PATH . "templates/partials/team.php";
 		$o = ob_get_contents();
-		ob_get_clean();
+		ob_end_clean();
 
 		return $o;
 	}
