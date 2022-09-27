@@ -107,7 +107,7 @@ class Shortcode_About {
 		);
 
 		ob_start();
-		include CLAB__PATH . "templates/partials/team.php";
+		@include CLAB__PATH . "templates/partials/team.php";
 		$o = ob_get_contents();
 		ob_end_clean();
 
