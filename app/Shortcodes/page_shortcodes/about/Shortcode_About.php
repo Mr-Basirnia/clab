@@ -15,6 +15,7 @@ class Shortcode_About {
 	public function __construct() {
 		add_shortcode( 'clab_about_us', array ( $this, 'about_us_callback' ) );
 		add_shortcode( 'clab_point', array ( $this, 'point_callback' ) );
+		add_shortcode( 'clab_team', array ( $this, 'team_callback' ) );
 	}
 
 	/**
@@ -92,5 +93,24 @@ class Shortcode_About {
 		';
 
 		return $o;    // TODO:: This ShortCode needs dynamization.
+	}
+
+	/**
+	 * It returns a string of point HTML code.
+	 *
+	 * @return string
+	 */
+	public function team_callback(): string {
+
+		$data = array (
+			'title' => 'ما یک تیم پویا و نابغه برای خدمتت به شما داریم'
+		);
+
+		ob_start();
+		include CLAB__PATH . "templates/partials/team.php";
+		$o = ob_get_contents();
+		ob_get_clean();
+
+		return $o;
 	}
 }
