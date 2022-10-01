@@ -199,7 +199,7 @@ class Clab_Helper {
 	 * @return string The output of the file.
 	 */
 	public static function render( string $file, array $data = array () ): string {
-		$path = CLAB__PATH . $file . '.php';
+		$path = CLAB__PATH . 'templates/' . $file . '.php';
 		ob_start();
 		@include $path;
 		$html = ob_get_contents();

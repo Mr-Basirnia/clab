@@ -16,7 +16,7 @@ class Shortcode_About {
 	 */
 	public function __construct() {
 		add_shortcode( 'clab_about_us', array ( $this, 'about_us_callback' ) );
-		add_shortcode( 'clab_point', array ( $this, 'point_callback' ) );
+		add_shortcode( 'clab_goal', array ( $this, 'goal_callback' ) );
 		add_shortcode( 'clab_team', array ( $this, 'team_callback' ) );
 		add_shortcode( 'clab_recommendation', array ( $this, 'recommendation_callback' ) );
 	}
@@ -27,35 +27,13 @@ class Shortcode_About {
 	 * @return string A string.
 	 */
 	public function about_us_callback(): string {
-		$o = '<div class="section-gap"><div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-4">
-                        <h6>';
 
-		$o .= 'درباره ما';
-
-		$o .= '</h6><h2 class="mb-4">';
-
-		$o .= get_option(
-			'clab_about_page_shortcode_about_us_title',
-			' ما یک آژانس دیجیتال مستقر در ایران هستیم'
-		);
-
-		$o .= '</h2><p class="text-muted">';
-
-		$o .= get_option(
-			'clab_about_page_shortcode_about_us_des',
-			'لورم ایپسوم'
-		);
-
-		$o .= '</p></div> <div class="col-md-6">';
-		$o .= '<img src="' . CLAB__URL . '/assets/img/cards/29c.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>';
-
-		return $o;
+		/**
+		 * Render about-us content.
+		 *
+		 * @see templates/partials/about-us.php
+		 */
+		return Clab_Helper::render( 'partials/about-us' ); // TODO:: This ShortCode needs dynamization.
 	}
 
 	/**
@@ -63,39 +41,14 @@ class Shortcode_About {
 	 *
 	 * @return string
 	 */
-	public function point_callback(): string {
-		$o = '
-		<div class="section-gap bg-gray">
-			<div class="container">
-				<div class="row justify-content-between align-items-center">
-					<div class="col-md-8 mb-lg-5 mb-4">
-						<h6>هدف ما</h6>
-						<h2 class="mb-4">ما در اینجا برای حل مشکل شما و تحویل نیازهای شما هستیم</h2>
-					</div>
-					<div class="col-md-6">
-						<h4>ماموریت</h4>
-						<p class="text-muted">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-						<ul class="list-unstyled text-muted">
-							<li><i class="vl-minus font-size-12 pr-3 pb-0"></i>یکی از بهترین سایت های چند منظوره</li>
-							<li><i class="vl-minus font-size-12 pr-3 pb-0"></i>پشتیبانی حرفه ای و سریع </li>
-							<li><i class="vl-minus font-size-12 pr-3 pb-0"></i>کد های مرتب و تمیز</li>
-						</ul>
-					</div>
-					<div class="col-md-6">
-						<h4>ویژن</h4>
-						<p class="text-muted">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-						<ul class="list-unstyled text-muted">
-							<li><i class="vl-minus font-size-12 pr-3 pb-0"></i>یکی از بهترین سایت های چند منظوره</li>
-							<li><i class="vl-minus font-size-12 pr-3 pb-0"></i>پشتیبانی حرفه ای و سریع </li>
-							<li><i class="vl-minus font-size-12 pr-3 pb-0"></i>کد های مرتب و تمیز</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		';
+	public function goal_callback(): string {
 
-		return $o;    // TODO:: This ShortCode needs dynamization.
+		/**
+		 * Render goal content.
+		 *
+		 * @see templates/partials/goal.php
+		 */
+		return Clab_Helper::render( 'partials/goal' ); // TODO:: This ShortCode needs dynamization.
 	}
 
 	/**
@@ -104,12 +57,16 @@ class Shortcode_About {
 	 * @return string
 	 */
 	public function team_callback(): string {
-
 		$data = array (
 			'title' => 'ما یک تیم پویا و نابغه برای خدمتت به شما داریم'
 		);
 
-		return Clab_Helper::render( 'templates/partials/team', $data );
+		/**
+		 * Render team content.
+		 *
+		 * @see templates/partials/team.php
+		 */
+		return Clab_Helper::render( 'partials/team', $data ); // TODO:: This ShortCode needs dynamization.
 	}
 
 	/**
@@ -122,6 +79,11 @@ class Shortcode_About {
 			'title' => 'این قالب توصیه می شود'
 		);
 
-		return Clab_Helper::render( 'templates/partials/recommendation', $data );
+		/**
+		 * Render recommendation content.
+		 *
+		 * @see templates/partials/recommendation.php
+		 */
+		return Clab_Helper::render( 'partials/recommendation', $data ); // TODO:: This ShortCode needs dynamization.
 	}
 }
