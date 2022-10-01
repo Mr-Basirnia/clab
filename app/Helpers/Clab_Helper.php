@@ -12,7 +12,7 @@ class Clab_Helper {
 	 * It defines a constant if it is not already defined.
 	 *
 	 * @param string $cont_name cont_name The name of the constant.
-	 * @param mixed $value The value of the constant.
+	 * @param mixed  $value     The value of the constant.
 	 *
 	 * @return void The value of the constant.
 	 */
@@ -30,7 +30,7 @@ class Clab_Helper {
 	 *
 	 * @param string $slug The slug name for the generic template.
 	 * @param string $name The name of the specialised template.
-	 * @param array $args Optional. Additional arguments passed to the template.
+	 * @param array  $args Optional. Additional arguments passed to the template.
 	 *                     Default empty array.
 	 *
 	 * @return void|false Void on success, false if the template does not exist.
@@ -65,7 +65,7 @@ class Clab_Helper {
 	/**
 	 * It returns the number of pages that are needed to display all the posts.
 	 *
-	 * @param bool $echo
+	 * @param bool           $echo
 	 * @param float|int|null $posts_per_page
 	 *
 	 * @return float|void
@@ -187,5 +187,24 @@ class Clab_Helper {
 			'posts_per_page ' => 3,
 			'category__in'    => $categories
 		) );
+	}
+
+
+	/**
+	 * It takes a file name and an array of data, and returns the output of the file
+	 *
+	 * @param string $file The file to render.
+	 * @param array  $data an array of data to be used in the template
+	 *
+	 * @return string The output of the file.
+	 */
+	public static function render( string $file, array $data = array () ): string {
+		$path = CLAB__PATH . $file . '.php';
+		ob_start();
+		@include $path;
+		$html = ob_get_contents();
+		ob_end_clean();
+
+		return $html;
 	}
 }

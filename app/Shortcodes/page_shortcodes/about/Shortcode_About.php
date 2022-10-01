@@ -2,6 +2,8 @@
 
 namespace MrBasirnia\App\Shortcodes\page_shortcodes\about;
 
+use MrBasirnia\App\Helpers\Clab_Helper;
+
 class Shortcode_About {
 
 	/**
@@ -16,6 +18,7 @@ class Shortcode_About {
 		add_shortcode( 'clab_about_us', array ( $this, 'about_us_callback' ) );
 		add_shortcode( 'clab_point', array ( $this, 'point_callback' ) );
 		add_shortcode( 'clab_team', array ( $this, 'team_callback' ) );
+		add_shortcode( 'clab_recommendation', array ( $this, 'recommendation_callback' ) );
 	}
 
 	/**
@@ -106,11 +109,19 @@ class Shortcode_About {
 			'title' => 'ما یک تیم پویا و نابغه برای خدمتت به شما داریم'
 		);
 
-		ob_start();
-		@include CLAB__PATH . "templates/partials/team.php";
-		$o = ob_get_contents();
-		ob_end_clean();
+		return Clab_Helper::render( 'templates/partials/team', $data );
+	}
 
-		return $o;
+	/**
+	 * It returns a string of point HTML code.
+	 *
+	 * @return string
+	 */
+	public function recommendation_callback(): string {
+		$data = array (
+			'title' => 'این قالب توصیه می شود'
+		);
+
+		return Clab_Helper::render( 'templates/partials/recommendation', $data );
 	}
 }
