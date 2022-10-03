@@ -19,6 +19,9 @@ class Shortcode_About {
 		add_shortcode( 'clab_goal', array ( $this, 'goal_callback' ) );
 		add_shortcode( 'clab_team', array ( $this, 'team_callback' ) );
 		add_shortcode( 'clab_recommendation', array ( $this, 'recommendation_callback' ) );
+		add_shortcode( 'clab_customers', array ( $this, 'customers_callback' ) );
+		add_shortcode( 'clab_gallery', array ( $this, 'gallery_callback' ) );
+		add_shortcode( 'clab_promo', array ( $this, 'promo_callback' ) );
 	}
 
 	/**
@@ -85,5 +88,64 @@ class Shortcode_About {
 		 * @see templates/partials/recommendation.php
 		 */
 		return Clab_Helper::render( 'partials/recommendation', $data ); // TODO:: This ShortCode needs dynamization.
+	}
+
+	/**
+	 * It returns a string of point HTML code.
+	 *
+	 * @return string
+	 */
+	public function customers_callback(): string {
+		/**
+		 * Render customers content.
+		 *
+		 * @see templates/partials/customers.php
+		 */
+		return Clab_Helper::render( 'partials/customers' ); // TODO:: This ShortCode needs dynamization.
+	}
+
+	/**
+	 * It returns a string of point HTML code.
+	 *
+	 * @return string
+	 */
+	public function gallery_callback(): string {
+		/*---------------------------------------------------------------------------
+		* Getting the attachment IDs of the images that are uploaded to the gallery.
+		*--------------------------------------------------------------------------*/
+		$images = get_post_meta( get_the_ID(), 'vdw_gallery_id', true );
+		$data   = array ();
+
+		if ( is_array( $images ) && ! empty( $images ) ) {
+
+			foreach ( $images as $key => $image ) {
+				$attachment              = get_post( $image );
+				$data[ $key ]['src']     = wp_get_attachment_link( $image );
+				$data[ $key ]['title']   = $attachment->post_title;
+				$data[ $key ]['caption'] = $attachment->post_excerpt;
+			}
+
+		}
+
+		/**
+		 * Render gallery content.
+		 *
+		 * @see templates/partials/gallery.php
+		 */
+		return Clab_Helper::render( 'partials/gallery' ); // TODO:: This ShortCode needs dynamization.
+	}
+
+	/**
+	 * It returns a string of point HTML code.
+	 *
+	 * @return string
+	 */
+	public function promo_callback(): string {
+		/**
+		 * Render promo content.
+		 *
+		 * @see templates/partials/promo.php
+		 */
+		return Clab_Helper::render( 'partials/promo' ); // TODO:: This ShortCode needs dynamization.
 	}
 }
