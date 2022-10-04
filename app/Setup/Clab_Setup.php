@@ -64,6 +64,7 @@ class Clab_Setup extends Singleton {
 
 		$this->add_clab_theme_support();
 		$this->add_clab_theme_image_size();
+		( new Clab_Menu() );
 	}
 
 
