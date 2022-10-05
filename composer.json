@@ -13,10 +13,7 @@
         }
     },
     "config": {
-        "optimize-autoloader": true,
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
+        "optimize-autoloader": true
     },
     "authors": [
         {
@@ -31,8 +28,5 @@
         "hekmatinasser/verta": "^8.1"
     },
     "homepage": "https://github.com/Mr-Basirnia/clab",
-    "require-dev": {
-        "wp-coding-standards/wpcs": "^2.3",
-        "phpcompatibility/phpcompatibility-wp": "^2.1"
-    }
+    "require-dev": {}
 }
