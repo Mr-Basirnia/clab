@@ -1,6 +1,12 @@
 {
     "name": "mr-basirnia/clab-develop",
     "type": "wordpress-theme",
+    "version": "1.0.0",
+    "license": "GPL-3.0+",
+    "keywords": [
+        "wordpress",
+        "theme"
+    ],
     "autoload": {
         "psr-4": {
             "MrBasirnia\\App\\": "app/"
@@ -17,7 +23,10 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": ">=8.0",
         "nesbot/carbon": "^2.62",
         "hekmatinasser/verta": "^8.1"
-    }
+    },
+    "homepage": "https://github.com/Mr-Basirnia/clab",
+    "require-dev": {}
 }

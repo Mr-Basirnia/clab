@@ -1,6 +1,6 @@
 <?php
 
-namespace MrBasirnia\App\Classes\Widgets;
+namespace MrBasirnia\App\Widgets;
 
 use WP_Widget;
 
@@ -49,7 +49,7 @@ class Recent_Posts_Widget extends WP_Widget {
         <h6 class="mb-4"><?= $instance['title']; ?></h6>
 
 		<?php foreach ( $recent_posts as $recent_post ): ?>
-			<?php $thumbnail_url = get_the_post_thumbnail_url( $recent_post['ID'] ) ?>
+			<?php $thumbnail_url = get_the_post_thumbnail_url( $recent_post['ID'], 'clab_widget_recent_posts_thumbnail' ) ?>
 
             <div class="card border-0 mb-1">
                 <div class="card-body row align-items-center">

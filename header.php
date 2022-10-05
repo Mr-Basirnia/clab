@@ -19,9 +19,11 @@ use MrBasirnia\App\Helpers\Clab_Helper as Render;
 Render::template( 'layouts/header' );
 
 
-/**
- * Renders partials header.
- *
- * @see templates/partials/header.php
- */
-Render::template( 'partials/header' );
+if ( ! is_404() ):
+	/**
+	 * Renders partials header.
+	 *
+	 * @see templates/partials/header.php
+	 */
+	Render::template( 'partials/header' );
+endif;

@@ -2,6 +2,9 @@
 
 namespace MrBasirnia\App\Helpers;
 
+use Hekmatinasser\Verta\Verta;
+use WP_Query;
+
 class Clab_Helper {
 
 
@@ -9,7 +12,7 @@ class Clab_Helper {
 	 * It defines a constant if it is not already defined.
 	 *
 	 * @param string $cont_name cont_name The name of the constant.
-	 * @param mixed $value The value of the constant.
+	 * @param mixed  $value     The value of the constant.
 	 *
 	 * @return void The value of the constant.
 	 */
@@ -27,7 +30,7 @@ class Clab_Helper {
 	 *
 	 * @param string $slug The slug name for the generic template.
 	 * @param string $name The name of the specialised template.
-	 * @param array $args Optional. Additional arguments passed to the template.
+	 * @param array  $args Optional. Additional arguments passed to the template.
 	 *                     Default empty array.
 	 *
 	 * @return void|false Void on success, false if the template does not exist.
@@ -62,7 +65,7 @@ class Clab_Helper {
 	/**
 	 * It returns the number of pages that are needed to display all the posts.
 	 *
-	 * @param bool $echo
+	 * @param bool           $echo
 	 * @param float|int|null $posts_per_page
 	 *
 	 * @return float|void
@@ -83,5 +86,125 @@ class Clab_Helper {
 		}
 
 		return ceil( $published_post_count / $posts_per_page );
+	}
+
+
+	/**
+	 * It's a callback function for the WordPress function `wp_list_comments()`
+	 * that outputs the HTML for a single comment
+	 *
+	 * @param $comment
+	 * @param $args
+	 * @param $depth
+	 */
+	public static function clab_blog_comments_list_style( $comment, $args, $depth ): void {
+		?>
+
+        <li class="comment ">
+            <article class="comment-body">
+                <footer class="comment-meta">
+                    <div class="comment-author ">
+						<?php
+						if ( $args['avatar_size'] != 0 ) {
+							echo get_avatar( $comment, $args['avatar_size'] );
+						}
+						?>
+                        <b class="fn">
+							<?php if ( $comment->comment_approved !== '0' ): ?>
+                                <a href="#" rel="external nofollow" class="url"><?= get_comment_author_link() ?></a>
+							<?php else: ?>
+                                <p rel="external nofollow" class="url">
+                                    نام بعد از تایید دیدگاه نمایش داده می شود .
+                                </p>
+							<?php endif; ?>
+                        </b>
+                        <span class="says">گفته:</span>
+                    </div><!-- .comment-author -->
+
+                    <div class="comment-metadata">
+                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+							<?php
+							$data_time = get_comment_date( 'Y-m-d' ) . ' ' . get_comment_time( 'H:i' );
+							echo \verta( $data_time )->format( '%d %B %Y در g:i A' );
+							?>
+                        </a>
+                    </div><!-- .comment-metadata -->
+
+                </footer><!-- .comment-meta -->
+
+				<?php if ( $comment->comment_approved == '0' ) : ?>
+                    <em class="comment-awaiting-moderation"><?= 'کامنت در انتظار تایید است.' ?></em><br/>
+				<?php endif; ?>
+
+				<?php if ( $comment->comment_approved !== '0' ): ?>
+
+                    <div class="comment-content">
+						<?php comment_text(); ?>
+                    </div><!-- .comment-content -->
+
+				<?php endif; ?>
+
+				<?php if ( $comment->comment_approved !== '0' ): ?>
+
+                    <div class="reply">
+						<?php
+						comment_reply_link(
+							array_merge(
+								$args,
+								array (
+									'add_below' => 'comment',
+									'depth'     => $depth,
+									'max_depth' => $args['max_depth']
+								)
+							)
+						); ?>
+                    </div>
+
+				<?php endif; ?>
+
+            </article><!-- .comment-body -->
+        </li>
+
+		<?php
+	}
+
+
+	/**
+	 * It returns a WP_Query object if there are posts in the categories passed to the function.
+	 *
+	 * @param array $categories An array of category IDs.
+	 *
+	 * @return WP_Query A WP_Query object.
+	 */
+	public static function related_posts( array $categories ): WP_Query {
+
+		/*------------------------------------
+		* Get similar posts by category
+		* ---------------------------------*/
+		return new WP_Query( array (
+			'post_type'       => 'post',
+			'post_status'     => 'publish',
+			'posts_per_page ' => 3,
+			'category__in'    => $categories
+		) );
+	}
+
+
+	/**
+	 * It takes a file name and an array of data, and returns the output of the file
+	 *
+	 * @param string $file The file to render.
+	 * @param array  $data an array of data to be used in the template
+	 *
+	 * @return string The output of the file.
+	 */
+	public static function render( string $file, array $data = array () ): string {
+		$path = CLAB__PATH . 'templates/' . $file . '.php';
+		ob_start();
+		@include $path;
+		$html = ob_get_contents();
+		ob_end_clean();
+
+		return $html;
 	}
 }

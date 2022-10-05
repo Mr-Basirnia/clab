@@ -1,6 +1,6 @@
 <?php
 
-namespace MrBasirnia\App\Classes\Widgets;
+namespace MrBasirnia\App\Widgets;
 
 use WP_Widget;
 
@@ -21,7 +21,7 @@ class Category_Widget extends WP_Widget {
 	/**
 	 * Front-end display of widget.
 	 *
-	 * @param array $args Widget arguments.
+	 * @param array $args     Widget arguments.
 	 * @param array $instance Saved values from database.
 	 *
 	 * @see WP_Widget::widget()
@@ -48,7 +48,7 @@ class Category_Widget extends WP_Widget {
 					break;
 				} ?>
 
-                <a href="<?= $category->slug; ?>" class="list-group-item">
+                <a href="<?= get_category_link( $category->term_id ); ?>" class="list-group-item">
 					<?= $category->cat_name; ?> (<?= $category->count; ?>)
                 </a>
 			<?php endforeach; ?>
