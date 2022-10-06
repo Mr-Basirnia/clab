@@ -93,8 +93,7 @@
 <script>
     jQuery(function ($) {
         $(document).ready(function () {
-            <!--add arrow icon if nav have child-->
-            $('li.current-menu-item.current_page_item.menu-item-has-children > a:first-child').append('<i class="fa fa-angle-down ml-2"></i>');
+            $('li.menu-item-object-custom.menu-item-has-children > a:first-child').append('<i class="fa fa-angle-down ml-2"></i>');
         });
     });
 </script>
