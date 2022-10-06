@@ -68,6 +68,9 @@ class Clab_Setup extends Singleton {
 		* Filter header tag classes
 		*-------------------------------------*/
 		add_filter( 'clab_header_tag_class', array ( $this, 'clab_header_tag_class_callback' ) );
+
+        // register theme nav
+		( new Clab_Nav() );
     }
 
 
