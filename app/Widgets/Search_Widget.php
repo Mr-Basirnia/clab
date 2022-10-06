@@ -28,7 +28,7 @@ class Search_Widget extends WP_Widget {
 	 *
 	 */
 	public function widget( $args, $instance ) {
-
+		$instance['placeholder'] = $instance['placeholder'] ?? 'جستجو کنید ...';
 		printf( $args['before_widget'] );
 		?>
 
@@ -55,16 +55,13 @@ class Search_Widget extends WP_Widget {
 	 *
 	 */
 	public function form( $instance ) {
-
-		$title = $instance['placeholder'] ?? '';
+		$placeholder = $instance['placeholder'] ?? 'جستجو کنید ...';
 		?>
         <p>
             <label for="<?php echo $this->get_field_name( 'placeholder' ); ?>">
                 عنوان placeholder :
             </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'placeholder' ); ?>"
-                   name="<?php echo $this->get_field_name( 'placeholder' ); ?>" type="text"
-                   value="<?php echo esc_attr( $title ); ?>"/>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'placeholder' ); ?>" name="<?php echo $this->get_field_name( 'placeholder' ); ?>" type="text" value="<?php echo esc_attr( $placeholder ); ?>"/>
         </p>
 		<?php
 	}
