@@ -26,7 +26,17 @@ class Clab_Setup extends Singleton {
 
 	public function __construct() {
 		add_action( 'after_setup_theme', array ( $this, 'init' ) );
+        $this->bootstrap();
+	}
 
+	public function init() {
+
+		$this->add_clab_theme_support();
+		$this->add_clab_theme_image_size();
+		( new Clab_Menu() );
+	}
+
+	private function bootstrap(  ) {
 		/* It's a WordPress hook that will be called when the theme is loaded. */
 		add_action( 'widgets_init', array ( $this, 'clab_register_sidebars' ) );
 		add_action( 'widgets_init', array ( $this, 'clab_register_widgets' ) );
@@ -58,14 +68,7 @@ class Clab_Setup extends Singleton {
 		* Filter header tag classes
 		*-------------------------------------*/
 		add_filter( 'clab_header_tag_class', array ( $this, 'clab_header_tag_class_callback' ) );
-	}
-
-	public function init() {
-
-		$this->add_clab_theme_support();
-		$this->add_clab_theme_image_size();
-		( new Clab_Menu() );
-	}
+    }
 
 
 	/**
