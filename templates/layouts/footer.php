@@ -22,39 +22,51 @@
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">حرکت کن</h6>
-                    <ul class="footer-link">
-                        <li class="d-block"><a href="#">پیش نمایش</a></li>
-                        <li class="d-block"><a href="#">صفحات فرود</a></li>
-                        <li class="d-block"><a href="#">صفحات اپ</a></li>
-                        <li class="d-block"><a href="#">صفحات داخلی</a></li>
-                    </ul>
+					<?php if ( has_nav_menu( 'clab-footer-nav-one' ) ):
+						wp_nav_menu( array(
+							'theme_location'  => 'clab-footer-nav-one',
+							'container'       => 'ul',
+							'container_class' => 'footer-link',
+							'menu_class'      => 'footer-link',
+							'li_class'        => 'd-block'
+						) );
+					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">پلتفرم</h6>
-                    <ul class="footer-link">
-                        <li class="d-block"><a href="#">iOS مک و </a></li>
-                        <li class="d-block"><a href="#">آندروید و جاوا</a></li>
-                        <li class="d-block"><a href="#">ویندوز</a></li>
-                        <li class="d-block"><a href="#">لینوکس</a></li>
-                    </ul>
+					<?php if ( has_nav_menu( 'clab-footer-nav-two' ) ):
+						wp_nav_menu( array(
+							'theme_location'  => 'clab-footer-nav-two',
+							'container'       => 'ul',
+							'container_class' => 'footer-link',
+							'menu_class'      => 'footer-link',
+							'li_class'        => 'd-block'
+						) );
+					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">جامعه</h6>
-                    <ul class="footer-link">
-                        <li class="d-block"><a href="#">پایگاه دانش</a></li>
-                        <li class="d-block"><a href="#">یک کارشناس استخدام کنید</a></li>
-                        <li class="d-block"><a href="#">گفت و گو</a></li>
-                        <li class="d-block"><a href="#">تماس</a></li>
-                    </ul>
+					<?php if ( has_nav_menu( 'clab-footer-nav-three' ) ):
+						wp_nav_menu( array(
+							'theme_location'  => 'clab-footer-nav-three',
+							'container'       => 'ul',
+							'container_class' => 'footer-link',
+							'menu_class'      => 'footer-link',
+							'li_class'        => 'd-block'
+						) );
+					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">شرکت</h6>
-                    <ul class="footer-link">
-                        <li class="d-block"><a href="#">درباره شرکت</a></li>
-                        <li class="d-block"><a href="#">تاریخ</a></li>
-                        <li class="d-block"><a href="#">تیم</a></li>
-                        <li class="d-block"><a href="#">سرمایه گذاری</a></li>
-                    </ul>
+					<?php if ( has_nav_menu( 'clab-footer-nav-four' ) ):
+						wp_nav_menu( array(
+							'theme_location'  => 'clab-footer-nav-four',
+							'container'       => 'ul',
+							'container_class' => 'footer-link',
+							'menu_class'      => 'footer-link',
+							'li_class'        => 'd-block'
+						) );
+					endif; ?>
                 </div>
             </div>
         </div>
