@@ -20,12 +20,14 @@
                 <!--end responsive nav toggle button-->
                 <!--</div>-->
                 <!--top mega menu start-->
-				<?php wp_nav_menu( array(
-					'theme_location' => 'clab-nav-top',
-					'menu_class'     => 'vlmenu light-sub-menu slide-effect float-right fade-effect',
-					'container'      => 'nav',
-					'container_id'   => 'vl-menu',
-				) ); ?>
+	            <?php if ( has_nav_menu( 'clab-nav-top' ) ) :
+		            wp_nav_menu( array(
+			            'theme_location' => 'clab-nav-top',
+			            'menu_class'     => 'vlmenu light-sub-menu slide-effect float-right fade-effect',
+			            'container'      => 'nav',
+			            'container_id'   => 'vl-menu',
+		            ) );
+	            endif; ?>
                 <!--top mega menu end-->
             </div>
         </div>
