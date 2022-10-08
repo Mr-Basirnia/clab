@@ -19,7 +19,7 @@ use MrBasirnia\App\Helpers\Clab_Helper as Render;
 Render::template( 'layouts/header' );
 
 
-if ( ! is_404() ):
+if ( ! is_404() ) :
 	/**
 	 * Renders partials header.
 	 *

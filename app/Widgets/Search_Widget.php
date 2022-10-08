@@ -12,8 +12,8 @@ class Search_Widget extends WP_Widget {
 	public function __construct(
 		$id_base = 'clab_search_widget',
 		$name = 'سرچ باکس کلاب',
-		$widget_options = array (),
-		$control_options = array ()
+		$widget_options = array(),
+		$control_options = array()
 	) {
 		parent::__construct( $id_base, $name, $widget_options, $control_options );
 	}
@@ -77,7 +77,7 @@ class Search_Widget extends WP_Widget {
 	 *
 	 */
 	public function update( $new_instance, $old_instance ): array {
-		$instance                = array ();
+		$instance                = array();
 		$instance['placeholder'] = ( ! empty( $new_instance['placeholder'] ) ) ? strip_tags( $new_instance['placeholder'] ) : '';
 
 		return $instance;

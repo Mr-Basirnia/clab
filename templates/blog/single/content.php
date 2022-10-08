@@ -14,14 +14,14 @@
 						<?php
 						// Checking if there is any error in the post tags and if there is no error it will loop through
 						// the tags and display them.
-						if ( ! is_wp_error( $post_tags ) && $post_tags ): ?>
-							<?php foreach ( $post_tags as $key => $tag ): ?>
+						if ( ! is_wp_error( $post_tags ) && $post_tags ) : ?>
+							<?php foreach ( $post_tags as $key => $tag ) : ?>
                                 <a href="<?= get_tag_link( $tag->term_id ); ?>" class="badge badge-pill badge-dark">
 									<?= $tag->name; ?>
                                 </a>
 							<?php endforeach; ?>
 
-						<?php else: ?>
+						<?php else : ?>
                             <p class="badge badge-pill badge-dark">بدون برچسب</p>
 						<?php endif; ?>
                     </h6>
@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-md-3 text-md-center">
                         <img class="avatar-lg rounded-circle mb-3 d-inline-block"
-                             src="<?= get_avatar_url( get_the_author_meta( 'ID' ), array ( 'size' => 240 ) ) ?>"
+                             src="<?= get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 240 ) ) ?>"
                              alt="<?= get_the_author_meta( 'display_name' ) ?>">
                     </div>
                     <div class="col-md-9">

@@ -35,7 +35,7 @@ class Clab_Helper {
 	 *
 	 * @return void|false Void on success, false if the template does not exist.
 	 */
-	public static function template( $slug, $name = null, $args = array () ) {
+	public static function template( $slug, $name = null, $args = array() ) {
 
 		$template_slug = 'templates/' . $slug;
 		get_template_part( $template_slug, $name, $args );
@@ -51,7 +51,7 @@ class Clab_Helper {
 	 */
 	public static function get_current_page( bool $echo = false ) {
 
-		$page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;;
+		$page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		if ( $echo ) {
 			echo $page;
 
@@ -110,9 +110,9 @@ class Clab_Helper {
 						}
 						?>
                         <b class="fn">
-							<?php if ( $comment->comment_approved !== '0' ): ?>
+							<?php if ( $comment->comment_approved !== '0' ) : ?>
                                 <a href="#" rel="external nofollow" class="url"><?= get_comment_author_link() ?></a>
-							<?php else: ?>
+							<?php else : ?>
                                 <p rel="external nofollow" class="url">
                                     نام بعد از تایید دیدگاه نمایش داده می شود .
                                 </p>
@@ -136,7 +136,7 @@ class Clab_Helper {
                     <em class="comment-awaiting-moderation"><?= 'کامنت در انتظار تایید است.' ?></em><br/>
 				<?php endif; ?>
 
-				<?php if ( $comment->comment_approved !== '0' ): ?>
+				<?php if ( $comment->comment_approved !== '0' ) : ?>
 
                     <div class="comment-content">
 						<?php comment_text(); ?>
@@ -144,17 +144,17 @@ class Clab_Helper {
 
 				<?php endif; ?>
 
-				<?php if ( $comment->comment_approved !== '0' ): ?>
+				<?php if ( $comment->comment_approved !== '0' ) : ?>
 
                     <div class="reply">
 						<?php
 						comment_reply_link(
 							array_merge(
 								$args,
-								array (
+								array(
 									'add_below' => 'comment',
 									'depth'     => $depth,
-									'max_depth' => $args['max_depth']
+									'max_depth' => $args['max_depth'],
 								)
 							)
 						); ?>
@@ -181,11 +181,11 @@ class Clab_Helper {
 		/*------------------------------------
 		* Get similar posts by category
 		* ---------------------------------*/
-		return new WP_Query( array (
+		return new WP_Query( array(
 			'post_type'       => 'post',
 			'post_status'     => 'publish',
 			'posts_per_page ' => 3,
-			'category__in'    => $categories
+			'category__in'    => $categories,
 		) );
 	}
 
@@ -198,7 +198,7 @@ class Clab_Helper {
 	 *
 	 * @return string The output of the file.
 	 */
-	public static function render( string $file, array $data = array () ): string {
+	public static function render( string $file, array $data = array() ): string {
 		$path = CLAB__PATH . 'templates/' . $file . '.php';
 		ob_start();
 		@include $path;

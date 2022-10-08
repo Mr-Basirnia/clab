@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
 
-				<?php if ( comments_open() && get_comments_number() ): ?>
+				<?php if ( comments_open() && get_comments_number() ) : ?>
 
                     <!--comments area start-->
                     <div class="comments">
@@ -13,14 +13,14 @@
 							/*------------------------------
 							* Comments list style and setting
 							*----------------------------*/
-							wp_list_comments( array (
+							wp_list_comments( array(
 								'type'        => 'comment',
 								'style'       => 'ul',
 								'max_depth'   => 3,
 								'avatar_size' => 880,
-								'callback'    => '\MrBasirnia\App\Helpers\Clab_Helper::clab_blog_comments_list_style'
+								'callback'    => '\MrBasirnia\App\Helpers\Clab_Helper::clab_blog_comments_list_style',
 							),
-								get_comments( array ( 'post_id' => get_the_ID() ) )
+								get_comments( array( 'post_id' => get_the_ID() ) )
 							);
 							?>
                         </ul>
@@ -40,10 +40,10 @@
 					*  Single Page Comment Form
 					* ---------------------------------*/
 					?>
-					<?php comment_form( array (
+					<?php comment_form( array(
 						'format'               => 'html5',
 						'title_reply'          => '',
-						'fields'               => array (
+						'fields'               => array(
 							'author' => '
                             <div class="row">
                                 <div class=" col-md-4">
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                              </div>
-                        '
+                        ',
 						),
 						'comment_field'        => '
                             <div class="form-group">
@@ -83,7 +83,7 @@
                         ',
 						'comment_notes_before' => '<p class="text-muted">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای مورد نیاز علامت گذاری شده اند *</p>',
 						'title_reply_before'   => '<h5 id="reply-title" class="comment-reply-title">',
-						'title_reply_after'    => '</h5>'
+						'title_reply_after'    => '</h5>',
 					), get_the_ID() ); ?>
 
                 </div>

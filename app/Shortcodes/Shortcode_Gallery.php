@@ -12,7 +12,7 @@ class Shortcode_Gallery {
 	 * The function `clab_gallery_callback()` is a function that is called when the shortcode is used.
 	 */
 	public function __construct() {
-		add_shortcode( 'clab_gallery_carousel', array ( $this, 'clab_gallery_carousel_callback' ) );
+		add_shortcode( 'clab_gallery_carousel', array( $this, 'clab_gallery_carousel_callback' ) );
 	}
 
 
@@ -29,7 +29,7 @@ class Shortcode_Gallery {
 		$images = get_post_meta( get_the_ID(), 'vdw_gallery_id', true );
 		$result = '';
 
-		if ( is_array( $images ) and ! empty( $images ) ):
+		if ( is_array( $images ) and ! empty( $images ) ) :
 
 			$result .= '
 				<div class="owl-carousel owl-theme dot-style-1 nav-circle-solid-light nav-inside mb-lg-5 mb-4"
@@ -39,7 +39,7 @@ class Shortcode_Gallery {
 
 			foreach ( $images as $image ) {
 				$result .= '<div class="item">';
-				$result .= wp_get_attachment_link( $image, 'clab_gallery_shortcode', attr: array ( 'class' => 'card-img rounded' ) );
+				$result .= wp_get_attachment_link( $image, 'clab_gallery_shortcode', attr: array( 'class' => 'card-img rounded' ) );
 				$result .= '</div>';
 			}
 

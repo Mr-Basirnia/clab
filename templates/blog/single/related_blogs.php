@@ -10,22 +10,22 @@
 			<?php use MrBasirnia\App\Helpers\Clab_Helper;
 
 			$current_post_categories    = get_categories();
-			$current_post_categories_id = array ();
+			$current_post_categories_id = array();
 			$related_posts              = Clab_Helper::related_posts( $current_post_categories_id );
 
 			foreach ( $current_post_categories as $category ) {
 				$current_post_categories_id[] = $category->term_id;
 			}
 
-			if ( $related_posts->have_posts() ): ?>
+			if ( $related_posts->have_posts() ) : ?>
 
-				<?php while ( $related_posts->have_posts() ): $related_posts->the_post();
+				<?php while ( $related_posts->have_posts() ) : $related_posts->the_post();
 					/*------------------------------------
 					*  Get Related Posts Categories
 					*  @number Maximum number of terms to return.
 					* ---------------------------------*/
-					$related_post_categories = wp_get_object_terms( get_the_ID(), 'category', array (
-						'number' => 3
+					$related_post_categories = wp_get_object_terms( get_the_ID(), 'category', array(
+						'number' => 3,
 					) );
 					?>
 
@@ -36,7 +36,7 @@
                             </a>
                             <div class="card-body py-4">
 
-								<?php foreach ( $related_post_categories as $category ): ?>
+								<?php foreach ( $related_post_categories as $category ) : ?>
                                     <a href="<?php echo get_category_link( $category->term_id ) ?>" class="mb-2 d-inline-block">
 										<?php echo $category->name ?>
                                     </a>

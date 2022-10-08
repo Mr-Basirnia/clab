@@ -25,7 +25,7 @@ use MrBasirnia\App\Widgets\Search_Widget;
 class Clab_Setup extends Singleton {
 
 	public function __construct() {
-		add_action( 'after_setup_theme', array ( $this, 'init' ) );
+		add_action( 'after_setup_theme', array( $this, 'init' ) );
         $this->bootstrap();
 	}
 
@@ -36,28 +36,28 @@ class Clab_Setup extends Singleton {
 		( new Clab_Menu() );
 	}
 
-	private function bootstrap(  ) {
+	private function bootstrap( ) {
 		/* It's a WordPress hook that will be called when the theme is loaded. */
-		add_action( 'widgets_init', array ( $this, 'clab_register_sidebars' ) );
-		add_action( 'widgets_init', array ( $this, 'clab_register_widgets' ) );
+		add_action( 'widgets_init', array( $this, 'clab_register_sidebars' ) );
+		add_action( 'widgets_init', array( $this, 'clab_register_widgets' ) );
 
 		/* It adds a filter to the body tag classes. */
-		add_filter( 'body_class', array ( $this, 'clab_body_tag_classes' ) );
+		add_filter( 'body_class', array( $this, 'clab_body_tag_classes' ) );
 
 		/*--------------------------------------
 		* Enqueue assets for gallery meta box
 		*-------------------------------------*/
-		add_action( 'admin_enqueue_scripts', array ( $this, 'gallery_metabox_enqueue' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'gallery_metabox_enqueue' ) );
 
 		/*--------------------------------------
 		* Add Gallery Meta Box
 		*-------------------------------------*/
-		add_action( 'add_meta_boxes', array ( $this, 'add_gallery_metabox' ) );
+		add_action( 'add_meta_boxes', array( $this, 'add_gallery_metabox' ) );
 
 		/*--------------------------------------
 		* Save Gallery Meta Box
 		*-------------------------------------*/
-		add_action( 'save_post', array ( $this, 'gallery_meta_save' ) );
+		add_action( 'save_post', array( $this, 'gallery_meta_save' ) );
 
 		/*--------------------------------------
 		* Add Clab Shortcodes
@@ -67,7 +67,7 @@ class Clab_Setup extends Singleton {
 		/*--------------------------------------
 		* Filter header tag classes
 		*-------------------------------------*/
-		add_filter( 'clab_header_tag_class', array ( $this, 'clab_header_tag_class_callback' ) );
+		add_filter( 'clab_header_tag_class', array( $this, 'clab_header_tag_class_callback' ) );
 
         // register theme nav
 		( new Clab_Nav() );
@@ -128,7 +128,7 @@ class Clab_Setup extends Singleton {
 		/*------------------------------
 		 * Add Blog Sidebar
 		 *----------------------------*/
-		register_sidebar( array (
+		register_sidebar( array(
 			'name'           => 'بلاگ سایدبار',
 			'id'             => 'clab_blog_sidebar',
 			'description'    => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
@@ -207,9 +207,9 @@ class Clab_Setup extends Singleton {
 		if ( 'post.php' == $hook or 'post-new.php' == $hook ) {
 
 			wp_enqueue_style( 'gallery_metabox', CLAB__URL . '/assets/css/gallery-metabox.css' );
-			wp_enqueue_script( 'gallery_metabox', CLAB__URL . '/assets/js/gallery-metabox.js', array (
+			wp_enqueue_script( 'gallery_metabox', CLAB__URL . '/assets/js/gallery-metabox.js', array(
 				'jquery',
-				'jquery-ui-sortable'
+				'jquery-ui-sortable',
 			) );
 
 		}
@@ -223,14 +223,14 @@ class Clab_Setup extends Singleton {
 	 */
 	public function add_gallery_metabox( $post_type ) {
 
-		$types = array ( 'post', 'page', 'custom-post-type' );
+		$types = array( 'post', 'page', 'custom-post-type' );
 
 		if ( in_array( $post_type, $types ) ) {
 
 			add_meta_box(
 				'gallery-metabox',
 				'گالری',
-				array ( $this, 'gallery_meta_callback' ),
+				array( $this, 'gallery_meta_callback' ),
 				$post_type,
 				'normal',
 				'high'
@@ -352,7 +352,7 @@ class Clab_Setup extends Singleton {
 		 * then return the intersection of the classes available and the classes I want to use
 		 */
 		if ( is_page() ) {
-			$access_class = array ( 'app-header', 'transparent-header-dark-nav' );
+			$access_class = array( 'app-header', 'transparent-header-dark-nav' );
 
 			return implode(
 				' ',

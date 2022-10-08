@@ -1,4 +1,4 @@
-<?php if ( ! is_404() ): ?>
+<?php if ( ! is_404() ) : ?>
     <!--footer start-->
     <footer class="app-footer bg-dark pb-0 border-0 text-md-left text-center">
         <div class="container">
@@ -22,49 +22,49 @@
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">حرکت کن</h6>
-					<?php if ( has_nav_menu( 'clab-footer-nav-one' ) ):
+					<?php if ( has_nav_menu( 'clab-footer-nav-one' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-one',
 							'container'       => 'ul',
 							'container_class' => 'footer-link',
 							'menu_class'      => 'footer-link',
-							'li_class'        => 'd-block'
+							'li_class'        => 'd-block',
 						) );
 					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">پلتفرم</h6>
-					<?php if ( has_nav_menu( 'clab-footer-nav-two' ) ):
+					<?php if ( has_nav_menu( 'clab-footer-nav-two' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-two',
 							'container'       => 'ul',
 							'container_class' => 'footer-link',
 							'menu_class'      => 'footer-link',
-							'li_class'        => 'd-block'
+							'li_class'        => 'd-block',
 						) );
 					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">جامعه</h6>
-					<?php if ( has_nav_menu( 'clab-footer-nav-three' ) ):
+					<?php if ( has_nav_menu( 'clab-footer-nav-three' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-three',
 							'container'       => 'ul',
 							'container_class' => 'footer-link',
 							'menu_class'      => 'footer-link',
-							'li_class'        => 'd-block'
+							'li_class'        => 'd-block',
 						) );
 					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
                     <h6 class="mb-4">شرکت</h6>
-					<?php if ( has_nav_menu( 'clab-footer-nav-four' ) ):
+					<?php if ( has_nav_menu( 'clab-footer-nav-four' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-four',
 							'container'       => 'ul',
 							'container_class' => 'footer-link',
 							'menu_class'      => 'footer-link',
-							'li_class'        => 'd-block'
+							'li_class'        => 'd-block',
 						) );
 					endif; ?>
                 </div>

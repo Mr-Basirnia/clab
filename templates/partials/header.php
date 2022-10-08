@@ -24,7 +24,7 @@
 					'theme_location' => 'clab-nav-top',
 					'menu_class'     => 'vlmenu light-sub-menu slide-effect float-right fade-effect',
 					'container'      => 'nav',
-					'container_id'   => 'vl-menu'
+					'container_id'   => 'vl-menu',
 				) ); ?>
                 <!--top mega menu end-->
             </div>

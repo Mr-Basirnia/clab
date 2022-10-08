@@ -12,8 +12,8 @@ class Common_Widget extends WP_Widget {
 	public function __construct(
 		$id_base = 'clab_common_widget',
 		$name = 'عضویت در خبرنامه کلاب',
-		$widget_options = array (),
-		$control_options = array ()
+		$widget_options = array(),
+		$control_options = array()
 	) {
 		parent::__construct( $id_base, $name, $widget_options, $control_options );
 	}
@@ -93,7 +93,7 @@ class Common_Widget extends WP_Widget {
 	 *
 	 */
 	public function update( $new_instance, $old_instance ): array {
-		$instance                = array ();
+		$instance                = array();
 		$instance['title']       = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['description'] = ( ! empty( $new_instance['description'] ) ) ? strip_tags( $new_instance['description'] ) : '';
 

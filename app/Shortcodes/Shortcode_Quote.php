@@ -11,7 +11,7 @@ class Shortcode_Quote {
 	 * the shortcode. The second parameter is the function that will be called when the shortcode is used
 	 */
 	public function __construct() {
-		add_shortcode( 'clab_quote', array ( $this, 'clab_quote_callback' ) );
+		add_shortcode( 'clab_quote', array( $this, 'clab_quote_callback' ) );
 	}
 
 
@@ -24,7 +24,7 @@ class Shortcode_Quote {
 	 *
 	 * @return string The output of the shortcode.
 	 */
-	public function clab_quote_callback( array $atts = array (), $content = null, string $tag = '' ): string {
+	public function clab_quote_callback( array $atts = array(), $content = null, string $tag = '' ): string {
 
 		/*---------------------------------------
 		*  normalize attribute keys, lowercase.
@@ -35,7 +35,7 @@ class Shortcode_Quote {
 		*  override default attributes with user attributes.
 		* --------------------------------------------------*/
 		$quote_atts = shortcode_atts(
-			array (
+			array(
 				'author' => get_the_author(),
 			), $atts, $tag
 		);
@@ -46,11 +46,11 @@ class Shortcode_Quote {
 		/*----------------
 		*  Quote content
 		* --------------*/
-		if ( null !== $content ):
+		if ( null !== $content ) :
 			// Remove all instances of "<p>&nbsp;</p>" to avoid extra lines.
 			$content = preg_replace( '%<p>&nbsp;\s*</p>%', '', $content );
-			$old     = array ( '<br />', '<br>' );
-			$new     = array ( '', '' );
+			$old     = array( '<br />', '<br>' );
+			$new     = array( '', '' );
 			$content = str_replace( $old, $new, $content );
 
 			$o .= '<p class="h5 d-block mb-4">';
