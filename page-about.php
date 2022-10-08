@@ -9,9 +9,9 @@ use MrBasirnia\App\Helpers\Clab_Helper as Render;
 get_header();
 
 
-if ( have_posts() ):
+if ( have_posts() ) :
 
-	while ( have_posts() ): the_post();
+	while ( have_posts() ) : the_post();
 
 		/**
 		 * Renders about page content.

@@ -8,7 +8,7 @@
 
         </div>
 
-		<?php if ( get_previous_posts_link() || get_next_posts_link() ): ?>
+		<?php if ( get_previous_posts_link() || get_next_posts_link() ) : ?>
             <!--pagination-->
             <div class="pagination justify-content-center mb-4">
 				<?php previous_posts_link( '<i class="fa fa-angle-left"></i>' ); ?>

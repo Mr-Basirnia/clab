@@ -3,8 +3,8 @@
 *  Get Posts Categories
 *  @number Maximum number of terms to return.
 * -------------------------------------------*/
-$categories = wp_get_object_terms( get_the_ID(), 'category', array (
-	'number' => 3
+$categories = wp_get_object_terms( get_the_ID(), 'category', array(
+	'number' => 3,
 ) );
 ?>
 
@@ -16,7 +16,7 @@ $categories = wp_get_object_terms( get_the_ID(), 'category', array (
     </a>
     <div class="card-body py-4">
 
-		<?php foreach ( $categories as $category ): ?>
+		<?php foreach ( $categories as $category ) : ?>
             <a href="<?= get_category_link( $category->term_id ); ?>" class="mb-2 d-inline-block">
 				<?= $category->name; ?>
             </a>

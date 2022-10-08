@@ -18,9 +18,9 @@ class Clab_Menu {
 		/*--------------------------------------
         * Add Theme Menu in WP dashboard
         *-------------------------------------*/
-		add_action( 'admin_menu', array ( $this, 'add_clab_admin_menu' ) );
+		add_action( 'admin_menu', array( $this, 'add_clab_admin_menu' ) );
 		// Remove the default one, so we can add our customized version.
-		add_action( 'admin_menu', array ( $this, 'remove_clab_admin_sub_menu' ) );
+		add_action( 'admin_menu', array( $this, 'remove_clab_admin_sub_menu' ) );
 	}
 
 	/**
@@ -80,7 +80,7 @@ class Clab_Menu {
 			'درباره Clab',
 			'manage_options',
 			$parent_slug,
-			array ( $this, 'about' )
+			array( $this, 'about' )
 		);
 	}
 

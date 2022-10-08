@@ -15,13 +15,13 @@ class Shortcode_About {
 	 * the name of the function that will be called when the shortcode is used.
 	 */
 	public function __construct() {
-		add_shortcode( 'clab_about_us', array ( $this, 'about_us_callback' ) );
-		add_shortcode( 'clab_goal', array ( $this, 'goal_callback' ) );
-		add_shortcode( 'clab_team', array ( $this, 'team_callback' ) );
-		add_shortcode( 'clab_recommendation', array ( $this, 'recommendation_callback' ) );
-		add_shortcode( 'clab_customers', array ( $this, 'customers_callback' ) );
-		add_shortcode( 'clab_gallery', array ( $this, 'gallery_callback' ) );
-		add_shortcode( 'clab_promo', array ( $this, 'promo_callback' ) );
+		add_shortcode( 'clab_about_us', array( $this, 'about_us_callback' ) );
+		add_shortcode( 'clab_goal', array( $this, 'goal_callback' ) );
+		add_shortcode( 'clab_team', array( $this, 'team_callback' ) );
+		add_shortcode( 'clab_recommendation', array( $this, 'recommendation_callback' ) );
+		add_shortcode( 'clab_customers', array( $this, 'customers_callback' ) );
+		add_shortcode( 'clab_gallery', array( $this, 'gallery_callback' ) );
+		add_shortcode( 'clab_promo', array( $this, 'promo_callback' ) );
 	}
 
 	/**
@@ -60,8 +60,8 @@ class Shortcode_About {
 	 * @return string
 	 */
 	public function team_callback(): string {
-		$data = array (
-			'title' => 'ما یک تیم پویا و نابغه برای خدمتت به شما داریم'
+		$data = array(
+			'title' => 'ما یک تیم پویا و نابغه برای خدمتت به شما داریم',
 		);
 
 		/**
@@ -78,8 +78,8 @@ class Shortcode_About {
 	 * @return string
 	 */
 	public function recommendation_callback(): string {
-		$data = array (
-			'title' => 'این قالب توصیه می شود'
+		$data = array(
+			'title' => 'این قالب توصیه می شود',
 		);
 
 		/**
@@ -114,7 +114,7 @@ class Shortcode_About {
 		* Getting the attachment IDs of the images that are uploaded to the gallery.
 		*--------------------------------------------------------------------------*/
 		$images = get_post_meta( get_the_ID(), 'vdw_gallery_id', true );
-		$data   = array ();
+		$data   = array();
 
 		if ( is_array( $images ) && ! empty( $images ) ) {
 
@@ -124,7 +124,6 @@ class Shortcode_About {
 				$data[ $key ]['title']   = $attachment->post_title;
 				$data[ $key ]['caption'] = $attachment->post_excerpt;
 			}
-
 		}
 
 		/**

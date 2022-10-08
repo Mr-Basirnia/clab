@@ -12,8 +12,8 @@ class Category_Widget extends WP_Widget {
 	public function __construct(
 		$id_base = 'clab_category_widget',
 		$name = 'دسته بندی کلاب',
-		$widget_options = array (),
-		$control_options = array ()
+		$widget_options = array(),
+		$control_options = array()
 	) {
 		parent::__construct( $id_base, $name, $widget_options, $control_options );
 	}
@@ -39,7 +39,7 @@ class Category_Widget extends WP_Widget {
 
         <h6 class="mb-4"><?= $instance['title'] ?></h6>
         <div class="list-group list-group-right-arrow">
-			<?php foreach ( $categories as $key => $category ): ?>
+			<?php foreach ( $categories as $key => $category ) : ?>
 
 				<?php if ( $category->term_id == 1 ) {
 					continue;
@@ -93,7 +93,7 @@ class Category_Widget extends WP_Widget {
 	 *
 	 */
 	public function update( $new_instance, $old_instance ): array {
-		$instance          = array ();
+		$instance          = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 
 		return $instance;

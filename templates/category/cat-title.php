@@ -6,7 +6,7 @@
                 <!-- heading -->
                 <h2 class=""><?= wp_title( '' ); ?></h2>
 
-				<?php if ( '' !== category_description() ): ?>
+				<?php if ( '' !== category_description() ) : ?>
 					<?= category_description(); ?>
 				<?php endif; ?>
 

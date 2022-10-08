@@ -1,8 +1,8 @@
 <?php use MrBasirnia\App\Helpers\Clab_Helper as Render;
 
-if ( have_posts() ): ?>
+if ( have_posts() ) : ?>
 
-	<?php while ( have_posts() ): the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 
         <div class="col-md-4">
 

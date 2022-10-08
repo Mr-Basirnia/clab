@@ -12,8 +12,8 @@ class Recent_Posts_Widget extends WP_Widget {
 	public function __construct(
 		$id_base = 'clab_recent_posts_widget',
 		$name = 'پست های اخیر کلاب',
-		$widget_options = array (),
-		$control_options = array ()
+		$widget_options = array(),
+		$control_options = array()
 	) {
 		parent::__construct( $id_base, $name, $widget_options, $control_options );
 	}
@@ -39,16 +39,16 @@ class Recent_Posts_Widget extends WP_Widget {
 		/*------------------------------------
 		*  Get Recent Posts
 		* ---------------------------------*/
-		$recent_posts = wp_get_recent_posts( array (
+		$recent_posts = wp_get_recent_posts( array(
 			'numberposts' => $instance['number_posts'] ?? 3,
-			'post_status' => 'publish'
+			'post_status' => 'publish',
 		) );
 		?>
 
 
         <h6 class="mb-4"><?= $instance['title']; ?></h6>
 
-		<?php foreach ( $recent_posts as $recent_post ): ?>
+		<?php foreach ( $recent_posts as $recent_post ) : ?>
 			<?php $thumbnail_url = get_the_post_thumbnail_url( $recent_post['ID'], 'clab_widget_recent_posts_thumbnail' ) ?>
 
             <div class="card border-0 mb-1">
@@ -123,7 +123,7 @@ class Recent_Posts_Widget extends WP_Widget {
 	 *
 	 */
 	public function update( $new_instance, $old_instance ): array {
-		$instance                 = array ();
+		$instance                 = array();
 		$instance['title']        = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['number_posts'] = ( ! empty( $new_instance['number_posts'] ) ) ? strip_tags( $new_instance['number_posts'] ) : '';
 
