@@ -16,9 +16,14 @@ use WP_Post;
 class Clab_Nav {
 	public function __construct() {
 		add_action( 'init', array( $this, 'clab_register_nav' ) );
-		add_filter( 'nav_menu_css_class', array( $this, 'add_additional_class_on_li' ), 1, 3 );
+		add_filter( 'nav_menu_css_class', array( $this, 'add_additional_class_on_li' ), 1, 3 ); //It adds a class to the <li> element of a menu item.
 	}
 
+	/**
+	 * Here we register all the theme navs.
+	 *
+	 * @return void
+	 */
 	public function clab_register_nav(): void {
 		register_nav_menu( 'clab-nav-top', 'منوی اصلی قالب Clab' );
 		register_nav_menu( 'clab-footer-nav-one', 'بخش اول منوی فوتر' );
