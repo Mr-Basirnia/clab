@@ -21,7 +21,7 @@
                     </p>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
-                    <h6 class="mb-4">حرکت کن</h6>
+                    <h6 class="mb-4"><?= wp_get_nav_menu_name( 'clab-footer-nav-one' ); ?></h6>
 					<?php if ( has_nav_menu( 'clab-footer-nav-one' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-one',
@@ -33,7 +33,7 @@
 					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
-                    <h6 class="mb-4">پلتفرم</h6>
+                    <h6 class="mb-4"><?= wp_get_nav_menu_name( 'clab-footer-nav-two' ); ?></h6>
 					<?php if ( has_nav_menu( 'clab-footer-nav-two' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-two',
@@ -45,7 +45,7 @@
 					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
-                    <h6 class="mb-4">جامعه</h6>
+                    <h6 class="mb-4"><?= wp_get_nav_menu_name( 'clab-footer-nav-three' ); ?></h6>
 					<?php if ( has_nav_menu( 'clab-footer-nav-three' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-three',
@@ -57,7 +57,7 @@
 					endif; ?>
                 </div>
                 <div class="col-md-2 mb-md-0 mb-4">
-                    <h6 class="mb-4">شرکت</h6>
+                    <h6 class="mb-4"><?= wp_get_nav_menu_name( 'clab-footer-nav-four' ); ?></h6>
 					<?php if ( has_nav_menu( 'clab-footer-nav-four' ) ) :
 						wp_nav_menu( array(
 							'theme_location'  => 'clab-footer-nav-four',
