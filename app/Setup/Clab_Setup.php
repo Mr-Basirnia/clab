@@ -36,7 +36,7 @@ class Clab_Setup extends Singleton {
 		( new Clab_Menu() );
 	}
 
-	private function bootstrap( ) {
+	private function bootstrap() {
 		/* It's a WordPress hook that will be called when the theme is loaded. */
 		add_action( 'widgets_init', array( $this, 'clab_register_sidebars' ) );
 		add_action( 'widgets_init', array( $this, 'clab_register_widgets' ) );
@@ -115,6 +115,10 @@ class Clab_Setup extends Singleton {
 
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
+		add_theme_support( 'custom-logo', array(
+			'height' => 100,
+			'width'  => 400,
+		) );
 	}
 
 	/**
