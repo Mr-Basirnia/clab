@@ -6,8 +6,9 @@
                 <!--brand start-->
                 <div class="navbar-brand float-left">
                     <a class="" href="index-2.html">
-                        <img class="logo-light" src="<?= CLAB__URL ?>assets/img/logo.png" srcset="<?= CLAB__URL ?>assets/img/logo@2x.png 2x" alt="CLab">
-                        <img class="logo-dark" src="<?= CLAB__URL ?>assets/img/logo-dark.png" srcset="<?= CLAB__URL ?>assets/img/logo-dark@2x.png 2x" alt="CLab">
+						<?php if ( has_custom_logo() ) {
+							the_custom_logo();
+						} ?>
                     </a>
                 </div>
                 <!--brand end-->

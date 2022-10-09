@@ -49,7 +49,9 @@
                              alt="<?= get_the_author_meta( 'display_name' ) ?>">
                     </div>
                     <div class="col-md-9">
-                        <h5 class="font-lora font-weight-normal mb-4"><?= get_the_author_meta( 'description' ) ?></h5>
+                        <h5 class="font-lora font-weight-normal mb-4">
+							<?= ! empty( get_the_author_meta( 'description' ) ) ? get_the_author_meta( 'description' ) : 'بدون توضیحات'; ?>
+                        </h5>
                         <div class="border-left mb-3"> &nbsp;</div>
                         <strong class="text-primary"><?= get_the_author_meta( 'display_name' ) ?></strong>
                     </div>
