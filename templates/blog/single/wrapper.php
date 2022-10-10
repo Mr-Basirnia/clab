@@ -30,7 +30,7 @@ if ( have_posts() ) :
 		 */
 		comments_template();
 
-		if ( get_option( 'clab_related_posts_is_active', 0 ) ):
+		if ( get_option( 'clab_related_posts_is_active', 1 ) ):
 			/**
 			 * Renders related blogs.
 			 *
