@@ -11,12 +11,12 @@
 
 			$current_post_categories    = get_categories();
 			$current_post_categories_id = array();
-			$related_posts              = Clab_Helper::related_posts( $current_post_categories_id );
 
 			foreach ( $current_post_categories as $category ) {
 				$current_post_categories_id[] = $category->term_id;
 			}
 
+			$related_posts = Clab_Helper::related_posts( $current_post_categories_id );
 			if ( $related_posts->have_posts() ) : ?>
 
 				<?php while ( $related_posts->have_posts() ) : $related_posts->the_post();
