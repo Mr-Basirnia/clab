@@ -68,3 +68,19 @@ add_filter( 'category_description', function ( $description, $category ) {
 	return ''; //If description is empty, it will return an empty string.
 
 }, 10, 2 );
+
+
+/*--------------------------------------------------
+ * Add separator to category list.
+ * -----------------------------------------------*/
+add_filter( 'clab_category_separator', function ( array $categories, string $separator = '/' ) {
+	$last_key = end( array_keys( $categories ) );
+	foreach ( $categories as $key => $category ) {
+		if ( $key === $last_key ) {
+			continue;
+		}
+		$category->name .= " {$separator}";
+	}
+
+	return $categories;
+} );

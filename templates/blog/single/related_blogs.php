@@ -11,12 +11,12 @@
 
 			$current_post_categories    = get_categories();
 			$current_post_categories_id = array();
-			$related_posts              = Clab_Helper::related_posts( $current_post_categories_id );
 
 			foreach ( $current_post_categories as $category ) {
 				$current_post_categories_id[] = $category->term_id;
 			}
 
+			$related_posts = Clab_Helper::related_posts( $current_post_categories_id );
 			if ( $related_posts->have_posts() ) : ?>
 
 				<?php while ( $related_posts->have_posts() ) : $related_posts->the_post();
@@ -27,6 +27,7 @@
 					$related_post_categories = wp_get_object_terms( get_the_ID(), 'category', array(
 						'number' => 3,
 					) );
+					$related_post_categories = apply_filters( 'clab_category_separator', $related_post_categories );
 					?>
 
                     <div class="col-md-4">
@@ -40,7 +41,6 @@
                                     <a href="<?php echo get_category_link( $category->term_id ) ?>" class="mb-2 d-inline-block">
 										<?php echo $category->name ?>
                                     </a>
-                                    /
 								<?php endforeach; ?>
 
                                 <h5 class="mb-4"><a href="<?php the_permalink() ?>"><?php echo the_title(); ?></a></h5>

@@ -4,13 +4,8 @@
         <div class="row justify-content-md-center align-items-center">
             <div class="col-md-7">
                 <!-- heading -->
-                <h2 class="">
-                    وبلاگ و مقاله
-                </h2>
-                <p class="lead text-muted">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                    طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                </p>
+                <h2 class=""><?php echo get_option( 'clab_home_title', '' ); ?></h2>
+                <p class="lead text-muted"><?php echo wp_trim_words( get_option( 'clab_home_description', '' ), 45 , '' ); ?></p>
             </div>
             <div class="col-md-8">
                 <img src="<?= CLAB__URL ?>assets/img/blog/blog-banner.jpg" alt="">
