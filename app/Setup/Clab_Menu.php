@@ -43,13 +43,11 @@ class Clab_Menu {
 
 		add_submenu_page(
 			$parent_slug,
-			'ابزار ها',
-			'ابزار ها',
+			'عمومی',
+			'عمومی',
 			'manage_options',
-			'clab_manage_tools',
-			function () {
-				echo 'Clab tools';
-			}
+			'clab_manage_general',
+			array( $this, 'general' )
 		);
 
 		add_submenu_page(
@@ -91,6 +89,18 @@ class Clab_Menu {
 	 */
 	public function remove_clab_admin_sub_menu(): void {
 		remove_submenu_page( 'clab_manage_theme', 'clab_manage_theme' );
+	}
+
+	public function general(): void {
+		if ( ! is_admin() ) {
+			return;
+		}
+		if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+			update_option( 'clab_home_title', esc_html( $_POST['title'] ) );
+			update_option( 'clab_home_description', esc_html( $_POST['description'] ) );
+			update_option( 'clab_related_posts_is_active', isset( $_POST['related_posts_is_active'] ) ? 1 : 0 );
+		}
+		get_template_part( 'templates/dashboard/general' );
 	}
 
 	/**
