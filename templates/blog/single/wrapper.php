@@ -30,13 +30,14 @@ if ( have_posts() ) :
 		 */
 		comments_template();
 
-
-		/**
-		 * Renders related blogs.
-		 *
-		 * @see templates/blog/single/related_blogs.php
-		 */
-		Render::template( 'blog/single/related_blogs' );
+		if ( get_option( 'clab_related_posts_is_active', 0 ) ):
+			/**
+			 * Renders related blogs.
+			 *
+			 * @see templates/blog/single/related_blogs.php
+			 */
+			Render::template( 'blog/single/related_blogs' );
+		endif;
 
 	endwhile;
 endif;
