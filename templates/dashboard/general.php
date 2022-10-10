@@ -21,7 +21,7 @@
                     <fieldset>
                         <legend class="screen-reader-text"><span>پست های مرتبط</span></legend>
                         <label for="related_posts_is_active">
-                            <input name="related_posts_is_active" type="checkbox" id="related_posts_is_active" <?php checked( get_option( 'clab_related_posts_is_active', 0 ), 1 ) ?>>
+                            <input name="related_posts_is_active" type="checkbox" id="related_posts_is_active" <?php checked( get_option( 'clab_related_posts_is_active', 1 ), 1 ) ?>>
                             نمایش پست های مرتبط
                         </label>
                     </fieldset>
