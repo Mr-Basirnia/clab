@@ -22,15 +22,16 @@ if ( have_posts() ) :
 		 */
 		Render::template( 'blog/single/content' );
 
+		if ( get_option( 'clab_dp_comments_is_active', 1 ) ) :
+			/**
+			 * Renders single blog page comments.
+			 *
+			 * @see clab-develop/comments.php
+			 */
+			comments_template();
+		endif;
 
-		/**
-		 * Renders single blog page comments.
-		 *
-		 * @see clab-develop/comments.php
-		 */
-		comments_template();
-
-		if ( get_option( 'clab_related_posts_is_active', 1 ) ):
+		if ( get_option( 'clab_related_posts_is_active', 1 ) ) :
 			/**
 			 * Renders related blogs.
 			 *

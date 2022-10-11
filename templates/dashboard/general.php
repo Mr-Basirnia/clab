@@ -27,6 +27,31 @@
                     </fieldset>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">دیدگاه ها</th>
+                <td>
+                    <fieldset>
+                        <legend class="screen-reader-text"><span>دیدگاه ها</span></legend>
+                        <label for="comments_dp_is_active">
+                            <input name="comments_dp_is_active" type="checkbox" id="comments_dp_is_active" <?php checked( get_option( 'clab_dp_comments_is_active', 1 ), 1 ) ?>>
+                            نمایش دیدگاه ها
+                            <p class="description" id="tagline-description">
+                                تنها صفحه داخلی پست ها شامل تغییرات می شود .
+                            </p>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="screen-reader-text"><span>دیدگاه ها</span></legend>
+                        <label for="comments_write_is_active">
+                            <input name="comments_write_is_active" type="checkbox" id="comments_write_is_active" <?php checked( get_option( 'clab_comments_write_is_active', 1 ), 1 ) ?>>
+                            نوشتن دیدگاه جدید
+                            <p class="description" id="tagline-description">
+                                در تمام صفحات تاثیر می گذارد.
+                            </p>
+                        </label>
+                    </fieldset>
+                </td>
+            </tr>
             </tbody>
         </table>
         <p class="submit">

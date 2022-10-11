@@ -31,20 +31,23 @@
 
                 <!--comment form start-->
                 <div class="comment-respond">
-                    <h3 class="comment-reply-title mb-lg-5 mb-4">
-                        پیام بگذارید
-                    </h3>
+					<?php if ( get_option( 'clab_comments_write_is_active', 1 ) ) : ?>
+                        <h3 class="comment-reply-title mb-lg-5 mb-4">
+                            پیام بگذارید
+                        </h3>
+					<?php endif; ?>
 
 					<?php
 					/*------------------------------------
 					*  Single Page Comment Form
 					* ---------------------------------*/
 					?>
-					<?php comment_form( array(
-						'format'               => 'html5',
-						'title_reply'          => '',
-						'fields'               => array(
-							'author' => '
+					<?php if ( get_option( 'clab_comments_write_is_active', 1 ) ) :
+						comment_form( array(
+							'format'               => 'html5',
+							'title_reply'          => '',
+							'fields'               => array(
+								'author' => '
                             <div class="row">
                                 <div class=" col-md-4">
                                     <div class="form-group">
@@ -52,14 +55,14 @@
                                     </div>
                                 </div>
 						',
-							'email'  => '
+								'email'  => '
                                 <div class=" col-md-4">
                                     <div class="form-group ">
                                         <input type="email" name="email" class="form-control" placeholder="ایمیل*" required="">
                                     </div>
                                 </div>
 						',
-							'url'    => '
+								'url'    => '
                                 <div class=" col-md-4">
                                     <div class="form-group ">
                                         <input type="text" name="url" class="form-control" placeholder="وب سایت" required="">
@@ -67,8 +70,8 @@
                                 </div>
                              </div>
                         ',
-						),
-						'comment_field'        => '
+							),
+							'comment_field'        => '
                             <div class="form-group">
                                 <div class="controls">
                                     <textarea id="message" name="comment" rows="5" placeholder="نظر*" class="form-control"
@@ -76,15 +79,16 @@
                                 </div>
                             </div>
                         ',
-						'submit_button'        => '
+							'submit_button'        => '
                             <div class="text-center mt-md-5">
                                 <button type="submit" class="btn btn-theme">ارسال</button>
                             </div>
                         ',
-						'comment_notes_before' => '<p class="text-muted">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای مورد نیاز علامت گذاری شده اند *</p>',
-						'title_reply_before'   => '<h5 id="reply-title" class="comment-reply-title">',
-						'title_reply_after'    => '</h5>',
-					), get_the_ID() ); ?>
+							'comment_notes_before' => '<p class="text-muted">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای مورد نیاز علامت گذاری شده اند *</p>',
+							'title_reply_before'   => '<h5 id="reply-title" class="comment-reply-title">',
+							'title_reply_after'    => '</h5>',
+						), get_the_ID() );
+					endif; ?>
 
                 </div>
                 <!--comment form end-->
