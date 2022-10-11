@@ -99,6 +99,8 @@ class Clab_Menu {
 			update_option( 'clab_home_title', esc_html( $_POST['title'] ) );
 			update_option( 'clab_home_description', esc_html( $_POST['description'] ) );
 			update_option( 'clab_related_posts_is_active', isset( $_POST['related_posts_is_active'] ) ? 1 : 0 );
+			update_option( 'clab_dp_comments_is_active', isset( $_POST['comments_dp_is_active'] ) ? 1 : 0 );
+			update_option( 'clab_comments_write_is_active', isset( $_POST['comments_write_is_active'] ) ? 1 : 0 );
 		}
 		get_template_part( 'templates/dashboard/general' );
 	}
