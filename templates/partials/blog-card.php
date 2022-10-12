@@ -6,6 +6,7 @@
 $categories = wp_get_object_terms( get_the_ID(), 'category', array(
 	'number' => 3,
 ) );
+$categories = apply_filters( 'clab_category_separator', $categories );
 ?>
 
 <div class="card border-0 mb-4 box-hover">
@@ -20,7 +21,6 @@ $categories = wp_get_object_terms( get_the_ID(), 'category', array(
             <a href="<?= get_category_link( $category->term_id ); ?>" class="mb-2 d-inline-block">
 				<?= $category->name; ?>
             </a>
-            /
 		<?php endforeach; ?>
 
         <h6 class="mb-4"><a href="<?php the_permalink(); ?>"><?= the_title(); ?></a></h6>
