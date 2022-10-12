@@ -1,8 +1,18 @@
 <?php use MrBasirnia\App\Helpers\Clab_Helper as Render;
 
-if ( have_posts() ) : ?>
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$args  = array(
+	'cat'            => get_query_var( 'cat' ),
+	'posts_per_page' => get_option( 'clab_cat_post_per_page', 6 ),
+	'paged'          => $paged,
+	'post_status'    => 'publish'
+);
 
-	<?php while ( have_posts() ) : the_post(); ?>
+$post_query = new WP_Query( $args );
+
+if ( $post_query->have_posts() ) : ?>
+
+	<?php while ( $post_query->have_posts() ) : $post_query->the_post(); ?>
 
         <div class="col-md-4">
 
