@@ -17,7 +17,7 @@ Render::template( 'blog/page-title' );
 /*------------------------------------
  *  Get Page Content
  * ---------------------------------*/
-get_the_content();
+the_content();
 
 /*------------------------------------
  *  Get Footer
