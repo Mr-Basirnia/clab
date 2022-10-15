@@ -33,11 +33,11 @@ if ( have_posts() ) : ?>
 	<?php if ( get_previous_posts_link() || get_next_posts_link() ) : ?>
         <!--pagination-->
         <div class="pagination justify-content-center mb-4">
-			<?php previous_posts_link( '<i class="fa fa-angle-left"></i>' ); ?>
+			<?php previous_posts_link( '<i class="fa fa-angle-left mr-2"></i> مطالب قبلی' ); ?>
             <div class="h6 mt-2 mx-4">
 				<?php Clab_Helper::get_current_page( true ) ?> از <?= Clab_Helper::get_count_page() ?>
             </div>
-			<?php next_posts_link( '<i class="fa fa-angle-right"></i>' ); ?>
+			<?php next_posts_link( 'مطالب بعدی <i class="fa fa-angle-right ml-2"></i>' ); ?>
         </div>
 	<?php endif; ?>
 
